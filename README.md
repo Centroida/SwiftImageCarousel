@@ -24,11 +24,20 @@ With CocoaPods:</b> We are having some issues uploading the SwiftImageCarousel P
 
 <b>Alternatively:</b>
 
-- Git submodule add https://github.com/Centroida/SwiftImageCarousel.git
+- Git submodule add https://github.com/Centroida/SwiftImageCarousel.git.
 - Drag the SwiftImageCarousel.xcodeproj file into your Xcode project (Xcode will ask to create a workspace file if your project does not have one already)
 - Under the main app target, open the General tab and add SwiftImageCarousel under the Embedded Binaries section
-- Build the SwiftImageCarousel target
-- It is ready to be imported and used.
+- Build the SwiftImageCarousel as a target before you import it
+- It is ready to be imported and used
+
+<b>OR</b>
+
+- Download directly from the github link https://github.com/Centroida/SwiftImageCarousel
+- Run your project, right click on the name of your project in the files navigator and choose "Add Files to <i>NameOfYourProject</i>"
+- Find SwiftImageCarousel.xcodeproj and add it
+- Under the main app target, open the General tab and add SwiftImageCarousel under the Embedded Binaries section
+- Build the SwiftImageCarousel as a target before you import it
+- It is ready to be imported and used
 
 ## Usage
 
