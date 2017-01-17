@@ -108,6 +108,36 @@ class RandomViewController: UIViewController {
     }
 ```
 
+### Setting up the <i>contentImageURLs</i> STRING ARRAY with image URLs provided as STRINGS
+
+```swift
+       let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
+       let vc = s.instantiateInitialViewController() as! InitialPageViewController
+       
+       /// Default URLs are not provided. They need to be set up.
+       vc.contentImageURLs = [ "<Your First URL>", "<Your Second URL>", "<Your Third URL>"]
+```
+
+### Disabling the timer with the <i>isTimerOn</i> BOOLEAN variable
+
+```swift
+       let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
+       let vc = s.instantiateInitialViewController() as! InitialPageViewController
+       
+       /// Timer ON/OFF boolean variable. Timer for automatic swiping is set true(or ON) by default. If it needs to be off, it needs to be set to false.
+       vc.isTimerOn = false
+```
+
+### Changing the timer's automatic swipe interval with the <i>swipeTimeIntervalSeconds</i> DOUBLE variable
+
+```swift
+       let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
+       let vc = s.instantiateInitialViewController() as! InitialPageViewController
+       
+       /// The interval on which the carousel swipes automatically when timer is on. Default is 3 seconds.
+       vc.swipeTimeIntervalSeconds = 1.5
+```
+
 ### Setting up the InitialPageViewControllerDelegate
 
 After you create InitialPageViewController programatically, setup the pageVCDelegate to self:
@@ -124,18 +154,8 @@ And do not forget to add InitialPageViewControllerDelegate as an extention to yo
         extension RandomViewController: InitialPageViewControllerDelegate {} 
 ```
 
-## SwiftImageCarousel Variable Configuration and Delegate Functions
 
-### Variable Configuration
-  
-- <b><i>contentImageURLs</i></b> - this is an array of strings (the URls to be provided). It is empty, so you need to provide the string URLs.
- 
-- <b><i>isTimerOn</i></b> - a boolean value defining whether the automatic swiping timer is on. Its default value is TRUE. If you want it off, set it to FALSE.
-  
-- <b><i>swipeTimeIntervalSeconds</i></b> - a DOUBLE integer defining the interval on which the carousel swipes automatically in seconds. Default value is 3 seconds. Set it to whatever you like.
- 
-- <b><i>pageVCDelegate</i></b> - the delegate variable that needs to be set to self, if access to its functions (they are all optional) is needed: 
-  - the most important function is: <b><i>setupAppearance</i></b> which helps set up the appearance of the page controls (as its name describes). This is how to implement it:
+ <b><i>setupAppearance</i></b> which helps set up the appearance of the page controls (as its name describes). This is how to implement it:
   Set the delegate to self, and add extension to current view controller of InitialPageViewControllerDelegate to implement the function and notice the change in colors in the first page control.
  
  ### Delegate Functions
