@@ -156,7 +156,7 @@ And do not forget to add InitialPageViewControllerDelegate as an extention to yo
  
 ### Delegate Functions Implementation after setting up the InitialPageViewControllerDelegate
 
-- Setting up the appearance of the page controls (the ones with the colored dots)
+<b>Setting up the appearance of the page controls (the ones with the colored dots)</b>
 
 ```swift
 extension RandomViewController: InitialPageViewControllerDelegate {
@@ -167,7 +167,7 @@ extension RandomViewController: InitialPageViewControllerDelegate {
 }
 ```
 
-- Getting the timer and its properties in case they are needed for whatever reasons
+<b>Getting the timer and its properties in case they are needed for whatever reasons</b>
 
 ```swift
 extension RandomViewController: InitialPageViewControllerDelegate {
@@ -177,7 +177,7 @@ extension RandomViewController: InitialPageViewControllerDelegate {
 }
 ```
 
-- Getting the coming pageItemController and its properties when the timer is on
+<b>Getting the coming pageItemController and its properties when the timer is on</b>
 
 ```swift
 extension RandomViewController: InitialPageViewControllerDelegate {
@@ -187,7 +187,7 @@ extension RandomViewController: InitialPageViewControllerDelegate {
 }
 ```
 
-- Getting gives you the pageItemController when unwinding from ScrollablePageItemController.
+<b>Getting gives you the pageItemController when unwinding from ScrollablePageItemController.</b>
 
 ```swift
 extension RandomViewController: InitialPageViewControllerDelegate {
@@ -197,36 +197,16 @@ extension RandomViewController: InitialPageViewControllerDelegate {
 }
 ```
   
-## Issues
+## Known Issues
   
-  No issues so far with the framework no matter whether it is used in portrait mode or in landscape mode.
-  And this is why we put it up here for everybody to use - we would love you to share comments and give ideas. 
+- Changing contentImageURLs should update the carousel.
+ 
+ <b>Any more of these are welcomed!</b>  
   
 ## Requirements
   
-  SwiftImageCarousel was tested and is working with the latest available version of software - XCode Version 8.2.1 and Swift 3.0.
+SwiftImageCarousel was tested and is working with the latest available version of software - XCode Version 8.2.1 and Swift 3.0.
   
 ## License
 
-Copyright (c) 2017 Centroida
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-  
-
+SwiftImageCarousel is released under the MIT license. See LICENSE for details.
