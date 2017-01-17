@@ -1,22 +1,19 @@
 # SwiftImageCarousel
-
-You are a swift developer and you want to implement a carousel in your application. And you want to do it fast? 
-Do not look fursther but check out this UIPageViewController-based image carousel!
+ 
+SwiftImageCarousel is a UIPageController-based framework that implements scrolling, zooming and automatic swiping carousel in a Swift applicatoion.
 
 All it needs from you is to supply it with valid image URLs and it is good to go. 
 
 ## Preview
 
-![](http://i.giphy.com/AetMTdLtlwn72.gif) ![](http://i.giphy.com/j6SZOy79vuUz6.gif)
-
-![](http://i.giphy.com/gQv4wcSnOGTUA.gif)
+![](http://i.giphy.com/AetMTdLtlwn72.gif)   
 
 ## Features
 
-- Horizontal image swiping that can be pinched and zoomed (zooming is not covered bt page control's dots).
-- Asynchronous image downloading. All you have to do is provide the URLs.
-- Carousel can be embedded or instantiated in full screen (Check-out the gifs).
-- Page controls appearance (the dot colors and background) can be set up through delegate protocol.
+- Horizontal image swiping that can be pinched and zoomed.
+- A timer to make the horizontal image swiping automatic.
+- Asynchronous image downloading that does not block the main thread. All you have to do is provide the URLs.
+- Customizable page controls appearance (the dot colors and background) -they can be set up through delegate protocol.
 
 ## Installation 
 
