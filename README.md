@@ -17,9 +17,29 @@ All it needs from you is to supply it with valid image URLs and it is good to go
 
 ## Installation 
 
-With CocoaPods:</b> We are having some issues uploading the SwiftImageCarousel Pod but we are working on it.
+### CocoaPods 
 
-<b>Alternatively:</b>
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```
+$ gem install cocoapods
+```
+
+To integrate SwiftImageCarousel into your Xcode project using CocoaPods, specify it in your ```Podfile```:
+
+```
+source 'https://github.com/Centroida/SwiftImageCarousel.git'
+
+platform :ios, '10.0'
+use_frameworks!
+
+target '<Your Target Project Name>' do
+pod 'SwiftImageCarousel', '1.0.1'
+end
+
+```
+
+### Alternatively:
 
 - Git submodule add https://github.com/Centroida/SwiftImageCarousel.git.
 - Drag the SwiftImageCarousel.xcodeproj file into your Xcode project (Xcode will ask to create a workspace file if your project does not have one already)
@@ -41,10 +61,7 @@ With CocoaPods:</b> We are having some issues uploading the SwiftImageCarousel P
 There are two options presented here as an example and implemented in code in the screen shot below and presented in action in the gifs above - in the first one we get presented with a carousel of images with the click of a button and in the second one we get the carousel embedded in the view.
 How you set up things is totally up to you ofcourse, these are just simple examples of how easily the carousel can be implemented.
 
-[![swift shot.png](https://s29.postimg.org/zfmxahxh3/swift_shot.png)](https://postimg.org/image/bonjsdx9v/) [![Screen Shot 2017-01-16 at 6.39.17 PM.png](https://s23.postimg.org/xlyn8wknv/Screen_Shot_2017_01_16_at_6_39_17_PM.png)](https://postimg.org/image/836avw13r/)
-
 ## SwiftImageCarousel Variable Configuration
-
   
   -- <b><i>contentImageURLs</i></b> - this is an array of strings (the URls to be provided). It is empty, so you need to provide the string URLs.
  
