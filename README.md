@@ -34,7 +34,7 @@ $ gem install cocoapods
 To integrate SwiftImageCarousel into your Xcode project using CocoaPods, specify it in your ```Podfile```:
 
 ```
-source 'https://github.com/Centroida/SwiftImageCarousel.git'
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '10.0'
 use_frameworks!
@@ -44,6 +44,9 @@ pod 'SwiftImageCarousel', '1.0.1'
 end
 
 ```
+
+If the CocoaPods https link does not work (it happens sometimes), try the more direct one ```https://github.com/Centroida/SwiftImageCarousel.git```
+
 
 ### Alternatively:
 
