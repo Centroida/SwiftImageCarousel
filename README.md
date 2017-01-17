@@ -15,6 +15,12 @@ All it needs from you is to supply it with valid image URLs and it is good to go
 - Asynchronous image downloading that does not block the main thread. All you have to do is provide the URLs.
 - Customizable page controls appearance (the dot colors and background) -they can be set up through delegate protocol.
 
+## Requirements
+
+- iOS 10.0+
+- Swift 3.0+
+- Xcode 8.2+
+
 ## Installation 
 
 ### CocoaPods 
@@ -151,7 +157,7 @@ After you create InitialPageViewController programatically, setup the pageVCDele
 And do not forget to add InitialPageViewControllerDelegate as an extention to your custom-class View Controller:
 
 ```swift
-        extension RandomViewController: InitialPageViewControllerDelegate {} 
+extension RandomViewController: InitialPageViewControllerDelegate {} 
 ```
  
 ### Delegate Functions Implementation after setting up the InitialPageViewControllerDelegate
@@ -187,7 +193,7 @@ extension RandomViewController: InitialPageViewControllerDelegate {
 }
 ```
 
-<b>Getting gives you the pageItemController when unwinding from ScrollablePageItemController.</b>
+<b>Getting the pageItemController when unwinding from ScrollablePageItemController.</b>
 
 ```swift
 extension RandomViewController: InitialPageViewControllerDelegate {
@@ -200,12 +206,6 @@ extension RandomViewController: InitialPageViewControllerDelegate {
 ## Known Issues
   
 - Changing contentImageURLs should update the carousel.
- 
- <b>Any more of these are welcomed!</b>  
-  
-## Requirements
-  
-SwiftImageCarousel was tested and is working with the latest available version of software - XCode Version 8.2.1 and Swift 3.0.
   
 ## License
 
