@@ -11,6 +11,6 @@ s.license      = "MIT"
 s.platform     = :ios, "10"
 s.source       = { :git => "https://github.com/Centroida/SwiftImageCarousel.git", :tag => "#{s.version}" }
 s.source_files = "SwiftImageCarousel", "SwiftImageCarousel/**/*.{h,m,swift}"
-s.resources = ["SwiftImageCarousel/**/*.storyboard"]
+s.resources = ["SwiftImageCarousel/**/*.{storyboard,Images.xcassets}"]
 s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3' }
 end
