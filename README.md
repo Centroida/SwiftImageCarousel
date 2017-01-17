@@ -45,7 +45,7 @@ end
 
 ```
 
-If the CocoaPods https link does not work (it happens sometimes), try the more direct one ```https://github.com/Centroida/SwiftImageCarousel.git```
+If the CocoaPods https link does not work (it happens sometimes), try directly with the actual repo link ```https://github.com/Centroida/SwiftImageCarousel.git```
 
 
 ### Alternatively:
@@ -74,7 +74,7 @@ import SwiftImageCarousel
 ```
 ### Providing the images as URLs and instantiating a VC with carousel that takes over the screen
 
-Make sure you do this in viewDidAppear(),because it will not work in viewDidLoad().
+Make sure you do this in viewDidAppear(), because it will not work in viewDidLoad().
 
 ```swift   
 import UIKit
