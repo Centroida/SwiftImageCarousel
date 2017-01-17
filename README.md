@@ -1,8 +1,15 @@
 # SwiftImageCarousel
  
-SwiftImageCarousel is a UIPageController-based framework that implements scrolling, zooming and automatic swiping carousel in a Swift applicatoion.
+SwiftImageCarousel is a UIPageController-based framework that implements scrolling, zooming and automatic swiping carousel in a Swift application. All it needs from you is to supply it with valid image URLs and it is good to go. 
 
-All it needs from you is to supply it with valid image URLs and it is good to go. 
+- [Preview](#preview)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Issues](#issues)
+- [License](#license)
+
 
 ## Preview
 
@@ -66,8 +73,6 @@ If the CocoaPods https link does not work (it happens sometimes), try directly w
 - It is ready to be imported and used
 
 ## Usage
-
-[SwiftImageCarousel](#swiftimagecarousel)
 
 ### Importing the framework 
 
@@ -208,7 +213,7 @@ extension RandomViewController: InitialPageViewControllerDelegate {
 }
 ```
   
-## Known Issues
+## Issues
   
 - Changing contentImageURLs should update the carousel.
   
