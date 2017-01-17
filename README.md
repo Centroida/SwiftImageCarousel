@@ -153,16 +153,49 @@ And do not forget to add InitialPageViewControllerDelegate as an extention to yo
 ```swift
         extension RandomViewController: InitialPageViewControllerDelegate {} 
 ```
-
-
- <b><i>setupAppearance</i></b> which helps set up the appearance of the page controls (as its name describes). This is how to implement it:
-  Set the delegate to self, and add extension to current view controller of InitialPageViewControllerDelegate to implement the function and notice the change in colors in the first page control.
  
- ### Delegate Functions
-  - <b><i>didStartTimer</i></b> - gives you the timer and its properties in case you need them or you want to change them.
-  - <b><i>didGetNextITemController</i></b> gives you the coming pageItemController and its properties when the timer is on.
-  - <b><i>didUnwindToPageViewController</i></b> gives you the pageItemController when unwinding from zoomable page view controller.
-  
+### Delegate Functions Implementation after setting up the InitialPageViewControllerDelegate
+
+- Setting up the appearance of the page controls (the ones with the colored dots)
+
+```swift
+extension RandomViewController: InitialPageViewControllerDelegate {
+    func setupAppearance(forFirst firstPageControl: UIPageControl, forSecond secondPageControl: UIPageControl) {
+        firstPageControl.backgroundColor = .red
+        firstPageControl.currentPageIndicatorTintColor = .yellow
+    }
+}
+```
+
+- Getting the timer and its properties in case they are needed for whatever reasons
+
+```swift
+extension RandomViewController: InitialPageViewControllerDelegate {
+    func didStartTimer(_ timer: Timer) {
+        print (timer.timeInterval)
+    }
+}
+```
+
+- Getting the coming pageItemController and its properties when the timer is on
+
+```swift
+extension RandomViewController: InitialPageViewControllerDelegate {
+     func didGetNextITemController(next pageItemController: InitialPageItemController) {
+        pageItemController.view.backgroundColor = .green
+    }
+}
+```
+
+- Getting gives you the pageItemController when unwinding from ScrollablePageItemController.
+
+```swift
+extension RandomViewController: InitialPageViewControllerDelegate {
+     func didUnwindToPageViewController(unwindedTo pageItemController: InitialPageItemController) {
+        pageItemController.view.backgroundColor = .green
+    }
+}
+```
   
 ## Issues
   
