@@ -9,7 +9,7 @@ s.authors    = { "Deyan Aleksandrov" => "deyanaaleksandrov@gmail.com", "Gavril T
 s.homepage     = "https://github.com/Centroida/SwiftImageCarousel"
 s.license      = "MIT"
 s.platform     = :ios, "10"
-s.source       = { :git => "https://github.com/Centroida/SwiftImageCarousel.git", :tag => "1.0.0" }
+s.source       = { :git => "https://github.com/Centroida/SwiftImageCarousel.git", :tag => "#{s.version}" }
 s.source_files = "SwiftImageCarousel", "SwiftImageCarousel/**/*.{h,m,swift}"
 s.resource = "SwiftImageCarousel/SwiftImageCarousel/Images.xcassets/no_image.imageset/no_image.png"
 s.resources = ["SwiftImageCarousel/**/*.{storyboard}"]
