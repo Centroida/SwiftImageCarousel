@@ -58,8 +58,71 @@ end
 
 ## Usage
 
-There are two options presented here as an example and implemented in code in the screen shot below and presented in action in the gifs above - in the first one we get presented with a carousel of images with the click of a button and in the second one we get the carousel embedded in the view.
-How you set up things is totally up to you ofcourse, these are just simple examples of how easily the carousel can be implemented.
+### Importing the framework 
+
+```swift
+import SwiftImageCarousel
+```
+### Providing the images as URLs and instantiating a VC with carousel that takes over the screen
+
+Make sure you do this in viewDidAppear(),because it will not work in viewDidLoad().
+
+```swift   
+import UIKit
+import SwiftImageCarousel
+
+class RandomViewController: UIViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
+        let vc = s.instantiateInitialViewController() as! InitialPageViewController
+        vc.contentImageURLs = [ "<Your First URL>", "<Your Second URL>", "<Your Third URL>"]
+
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+}
+```
+
+
+### Providing the images as URLs and embedding the carousel
+
+```swift
+    ///  The UIView declared in Main.Storyboard.
+    @IBOutlet weak var containerView: UIView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
+        let vc = s.instantiateInitialViewController() as! InitialPageViewController
+
+        vc.contentImageURLs = ["<Your First URL>", "<Your Second URL>", "<Your Third URL>"]
+
+        // Lets add it to container view.
+        vc.willMove(toParentViewController: self)
+        containerView.addSubview(vc.view)
+        vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
+        self.addChildViewController(vc)
+        vc.didMove(toParentViewController: self)
+    }
+```
+
+### Setting up the InitialPageViewControllerDelegate
+
+After you create InitialPageViewController programatically, setup the pageVCDelegate to self:
+
+```swift
+       let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
+       let vc = s.instantiateInitialViewController() as! InitialPageViewController
+       vc.pageVCDelegate = self
+```
+
+And do not forget to add InitialPageViewControllerDelegate as an extention to your custom-class View Controller:
+
+```swift
+        extension RandomViewController: InitialPageViewControllerDelegate {} 
+```
 
 ## SwiftImageCarousel Variable Configuration
   
