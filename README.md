@@ -67,6 +67,8 @@ If the CocoaPods https link does not work (it happens sometimes), try directly w
 
 ## Usage
 
+[SwiftImageCarousel](#swiftimagecarousel)
+
 ### Importing the framework 
 
 ```swift
