@@ -124,19 +124,21 @@ And do not forget to add InitialPageViewControllerDelegate as an extention to yo
         extension RandomViewController: InitialPageViewControllerDelegate {} 
 ```
 
-## SwiftImageCarousel Variable Configuration
+## SwiftImageCarousel Variable Configuration and Delegate Functions
+
+### Variable Configuration
   
-  -- <b><i>contentImageURLs</i></b> - this is an array of strings (the URls to be provided). It is empty, so you need to provide the string URLs.
+- <b><i>contentImageURLs</i></b> - this is an array of strings (the URls to be provided). It is empty, so you need to provide the string URLs.
  
- -- <b><i>isTimerOn</i></b> - a boolean value defining whether the automatic swiping timer is on. Its default value is TRUE. If you want it off, set it to FALSE.
+- <b><i>isTimerOn</i></b> - a boolean value defining whether the automatic swiping timer is on. Its default value is TRUE. If you want it off, set it to FALSE.
   
-  -- <b><i>swipeTimeIntervalSeconds</i></b> - a DOUBLE integer defining the interval on which the carousel swipes automatically in seconds. Default value is 3 seconds. Set it to whatever you like.
+- <b><i>swipeTimeIntervalSeconds</i></b> - a DOUBLE integer defining the interval on which the carousel swipes automatically in seconds. Default value is 3 seconds. Set it to whatever you like.
  
- -- <b><i>pageVCDelegate</i></b> - the delegate variable that needs to be set to self, if access to its functions (they are all optional) is needed: 
+- <b><i>pageVCDelegate</i></b> - the delegate variable that needs to be set to self, if access to its functions (they are all optional) is needed: 
   - the most important function is: <b><i>setupAppearance</i></b> which helps set up the appearance of the page controls (as its name describes). This is how to implement it:
   Set the delegate to self, and add extension to current view controller of InitialPageViewControllerDelegate to implement the function and notice the change in colors in the first page control.
-  
-  [![Screen Shot 2017-01-16 at 7.04.42 PM.png](https://s27.postimg.org/lc1aik39v/Screen_Shot_2017_01_16_at_7_04_42_PM.png)](https://postimg.org/image/pl60kq6j3/)
+ 
+ ### Delegate Functions
   - <b><i>didStartTimer</i></b> - gives you the timer and its properties in case you need them or you want to change them.
   - <b><i>didGetNextITemController</i></b> gives you the coming pageItemController and its properties when the timer is on.
   - <b><i>didUnwindToPageViewController</i></b> gives you the pageItemController when unwinding from zoomable page view controller.
