@@ -51,8 +51,19 @@ pod 'SwiftImageCarousel', '1.0.1'
 end
 
 ```
+<b>OR</b>
 
-If the CocoaPods https link does not work (it happens sometimes), try directly with the actual repo link ```https://github.com/Centroida/SwiftImageCarousel.git```
+```
+source 'https://github.com/Centroida/SwiftImageCarousel.git'
+
+platform :ios, '10.0'
+use_frameworks!
+
+target '<Your Target Project Name>' do
+pod 'SwiftImageCarousel', '1.0.1'
+end
+
+```
 
 
 ### Alternatively:
