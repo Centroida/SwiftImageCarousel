@@ -24,9 +24,8 @@ SwiftImageCarousel is a UIPageController-based framework that implements scrolli
 
 ## Requirements
 
-- iOS 10.0+
+- iOS 9.0+
 - Swift 3.0+
-- Xcode 8.2+
 
 ## Installation 
 
