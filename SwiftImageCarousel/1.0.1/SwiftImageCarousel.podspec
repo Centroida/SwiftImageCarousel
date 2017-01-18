@@ -6,7 +6,7 @@ s.description = "You are a swift developer and you want to implement a carousel 
 s.authors    = { "Deyan Aleksandrov" => "deyanaaleksandrov@gmail.com", "Gavril Tonev" => "gtonev@centroida.co" }
 s.homepage     = "https://github.com/Centroida/SwiftImageCarousel"
 s.license      = "MIT"
-s.platform     = :ios, "10"
+s.platform     = :ios, "9"
 s.source       = { :git => "https://github.com/Centroida/SwiftImageCarousel.git", :tag => "#{s.version}" }
 s.source_files = "SwiftImageCarousel", "SwiftImageCarousel/**/*.{h,m,swift}"
 s.resources = ["SwiftImageCarousel/**/*.storyboard"]
