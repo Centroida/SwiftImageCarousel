@@ -84,28 +84,6 @@ use_frameworks!
 ```swift
 import SwiftImageCarousel
 ```
-### Providing the images as URLs and instantiating a VC with carousel that takes over the screen
-
-The following instantiates the SwiftImageCarousel:
-
-```swift   
-import UIKit
-import SwiftImageCarousel
-
-class ViewController: UIViewController {
-    // For example, when a button is pressed
-    @IBAction func showCarouselButtonTapped(_ sender: UIButton) {
-
-        let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
-        let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
-        vc.contentImageURLs = [ "<Your First URL>", "<Your Second URL>", "<Your Third URL>"]
-
-        present(vc, animated: true, completion: nil)
-    }
-    
-}
-```
-
 
 ### Providing the images as URLs and embedding the `SwiftImageCarousel` in a UIContainerViewController
 
@@ -129,7 +107,7 @@ class ViewController: UIViewController {
     }
 ```
 
-### Setting up the <i>contentImageURLs</i> Array with image URLs provided as Strings
+### Setting up the `contentImageURLs` Array with image URLs provided as Strings
 
 ```swift
        let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
@@ -139,7 +117,7 @@ class ViewController: UIViewController {
        vc.contentImageURLs = [ "<Your First URL>", "<Your Second URL>", "<Your Third URL>"]
 ```
 
-### Disabling the timer with the <i>isTimerOn</i> Bool variable
+### Disabling the timer with the `isTimerOn` Bool variable
 
 ```swift
        let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
@@ -149,7 +127,7 @@ class ViewController: UIViewController {
        vc.isTimerOn = false
 ```
 
-### Changing the timer's automatic swipe interval with the <i>swipeTimeIntervalSeconds</i> Double variable
+### Changing the timer's automatic swipe interval with the `swipeTimeIntervalSeconds` Double variable
 
 ```swift
        let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
@@ -157,6 +135,27 @@ class ViewController: UIViewController {
        
        /// The interval on which the carousel swipes automatically when timer is on. Default is 3 seconds.
        vc.swipeTimeIntervalSeconds = 1.5
+```
+
+### Changing the SwiftImageCarouselItemVC content mode for image representation with the `contentMode` UIViewContentMode variable
+
+```swift
+       let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+       let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
+       
+       /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit
+       vc.contentMode = .scaleToFill
+```
+
+###  Disabling the modal gallery segue transition from SwiftImageCarouselItemVC to GalleryVC with the `showModalGalleryOnTap` Bool variable. 
+This variable would usually be used in combination with the `didTapSwiftImageCarouselItemVC(SwiftImageCarouselItemController: SwiftImageCarouselItemVC)` SwiftImageCarouselVCDelegate function.
+
+```swift
+       let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+       let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
+       
+       /// Enables/disables the showing of the modal gallery
+       vc.showModalGalleryOnTap = false
 ```
 
 ### Setting up the SwiftImageCarouselVCDelegate
@@ -211,6 +210,24 @@ extension ViewController: SwiftImageCarouselVCDelegate {
     }
 }
 ```
+
+<b>Setting <i>showModalGalleryOnTap</i> to false and instead performing a different segue than the default one when clicking on one of the images in the carousel.</b>
+
+```swift
+       /// Enables/disables the showing of the modal gallery
+       vc.showModalGalleryOnTap = false 
+```
+
+```swift
+extension ViewController: SwiftImageCarouselVCDelegate {
+     func didTapSwiftImageCarouselItemVC(SwiftImageCarouselItemController: SwiftImageCarouselItemVC) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "<SegueName>", sender: nil)
+        }
+    }
+
+}
+``` 
   
 ## Issues
   
