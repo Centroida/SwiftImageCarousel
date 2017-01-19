@@ -1,3 +1,7 @@
+[![CocoaPods](https://img.shields.io/cocoapods/v/SwiftImageCarousel.svg)](https://img.shields.io/cocoapods/v/SwiftImageCarousel.svg)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftImageCarousel.svg?style=flat)](http://cocoadocs.org/docsets/SwiftImageCarousel)
+[![CocoaPods](https://img.shields.io/cocoapods/l/SwiftImageCarousel.svg)](https://img.shields.io/cocoapods/l/SwiftImageCarousel.svg)
+
 # SwiftImageCarousel
  
 SwiftImageCarousel is a UIPageController-based framework that implements scrolling, zooming and automatic swiping carousel in a Swift application. All it needs from you is to supply it with valid image URLs and it is good to go. 
@@ -147,7 +151,8 @@ import SwiftImageCarousel
        vc.contentMode = .scaleToFill
 ```
 
-###  Disabling the modal gallery segue transition from SwiftImageCarouselItemVC to GalleryVC with the `showModalGalleryOnTap` Bool variable. 
+###  Disabling the modal gallery segue transition from SwiftImageCarouselItemVC to GalleryVC with the `showModalGalleryOnTap` Bool variable 
+
 This variable would usually be used in combination with the `didTapSwiftImageCarouselItemVC(SwiftImageCarouselItemController: SwiftImageCarouselItemVC)` SwiftImageCarouselVCDelegate function.
 
 ```swift
@@ -201,7 +206,7 @@ extension ViewController: SwiftImageCarouselVCDelegate {
 }
 ```
 
-<b>Getting the pageItemController when unwinding from ScrollablePageItemController.</b>
+<b>Getting the pageItemController when unwinding from ScrollablePageItemController</b>
 
 ```swift
 extension ViewController: SwiftImageCarouselVCDelegate {
