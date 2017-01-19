@@ -7,7 +7,7 @@
 
 import UIKit
 
-///  InitialPageItemController is instantiated by InitialPageViewController. It implements methods used for downloading downloading & displaying an image and a segue method to the ScrollablePageViewController.
+///  InitialPageItemController is instantiated by SwiftImageCarouselVC. It implements methods used for downloading downloading & displaying an image and a segue method to the ScrollablePageViewController.
 public class InitialPageItemController: UIViewController {
 
     // MARK: -  Outlets
@@ -18,7 +18,7 @@ public class InitialPageItemController: UIViewController {
     var itemIndex: Int = 0
     
     /// Passing on the delegate, so that it will get notified when an image is tapped
-    var pageVCDelegate: InitialPageViewControllerDelegate?
+    var pageVCDelegate: SwiftImageCarouselVCDelegate?
     
     /// Enables/disables the showing of the modal gallery
     var showModalGalleryOnTap = true

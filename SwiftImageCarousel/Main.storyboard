@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="1111.5" y="1100.5"/>
         </scene>
-        <!--Initial Page View Controller-->
+        <!--Swift Image CarouselVC-->
         <scene sceneID="z2o-Jv-T7h">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="AkL-qy-2tW" customClass="InitialPageViewController" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="AkL-qy-2tW" customClass="SwiftImageCarouselVC" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Lv3-Hr-UaO"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATb-KL-Eai" userLabel="First Responder" sceneMemberID="firstResponder"/>

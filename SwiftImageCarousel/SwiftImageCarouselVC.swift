@@ -1,14 +1,14 @@
 import UIKit
 
 //
-//  InitialPageViewController.swift
+//  SwiftImageCarouselVC.swift
 //  SwiftImageCarousel
 //
 //  Created by Deyan Aleksandrov on 1/3/17.
 //
 
-/// The delegate of a InitialPageViewController object must adopt this protocol. Optional methods of the protocol allow  the delegate to configure the appearance of the view controllers, the timer and get notified when a new image is shown
-@objc public protocol InitialPageViewControllerDelegate: class {
+/// The delegate of a SwiftImageCarouselVC object must adopt this protocol. Optional methods of the protocol allow  the delegate to configure the appearance of the view controllers, the timer and get notified when a new image is shown
+@objc public protocol SwiftImageCarouselVCDelegate: class {
     // TODO: Work on more functions to add possibly as well as naming?
 
     /// Delegate method that fires when the timer starts.
@@ -27,13 +27,12 @@ import UIKit
     /// - Parameter pageItemController: The page controller received when unwinding the ScrollablePageViewController
     @objc optional func didUnwindToPageViewController(unwindedTo pageItemController: InitialPageItemController)
 
-    ///  Using this method, a developer can setup the appearance of the page controls (dots) of both the InitialPageViewController and the ScrollablePageViewController. This delegate fires when InitialPageViewController is initialized
+    ///  Use it to setup the appearance of the page controls (dots) of both the SwiftImageCarouselVC and the ScrollablePageViewController. Fires when SwiftImageCarouselVC is initialized
     ///
     /// - Parameters:
-    ///   - firstPageControl: The page control in InitialPageViewController
+    ///   - firstPageControl: The page control in SwiftImageCarouselVC
     ///   - secondPageControl: The page control in ScrollablePageViewController
     @objc optional func setupAppearance(forFirst firstPageControl: UIPageControl, forSecond secondPageControl: UIPageControl)
-    
     
     /// Fires when a pageItemController is tapped
     ///
@@ -42,13 +41,13 @@ import UIKit
 }
 
 
-///  InitialPageViewController is the controller base class and initilizes the first view the user sees when a developer implements this carousel. It implements methods used for instantiating the proper page view, setting up the page controller appearance and setting up the timer used for automatic swiping of the page views.
-public class InitialPageViewController: UIPageViewController {
+///  SwiftImageCarouselVC is the controller base class and initilizes the first view the user sees when a developer implements this carousel. It implements methods used for instantiating the proper page view, setting up the page controller appearance and setting up the timer used for automatic swiping of the page views.
+public class SwiftImageCarouselVC: UIPageViewController {
     /// The model array of image urls used in the carousel
     public var contentImageURLs: [String] = []
 
     // MARK: - Delegate
-    weak public var pageVCDelegate: InitialPageViewControllerDelegate?
+    weak public var pageVCDelegate: SwiftImageCarouselVCDelegate?
     
     /// Enables/disables the showing of the modal gallery
     public var showModalGalleryOnTap = true
@@ -66,7 +65,7 @@ public class InitialPageViewController: UIPageViewController {
     /// This variable keeps track of the index used in the page control in terms of the array of URLs.
     fileprivate var pageIndicatorIndex = 0
     
-    /// This variable keeps track of the index of the InitialPageViewController in terms of the array of URLs.
+    /// This variable keeps track of the index of the SwiftImageCarouselVC in terms of the array of URLs.
     fileprivate var currentPageViewControllerItemIndex = 0
 
     // MARK: - Unwind segue
@@ -161,7 +160,7 @@ public class InitialPageViewController: UIPageViewController {
         appearance.backgroundColor = .clear
 
         /// Custom appearance setup with delegation from outside this framework.
-        let firstAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [InitialPageViewController.self])
+        let firstAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [SwiftImageCarouselVC.self])
         let secondAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [ScrollablePageViewController.self])
         pageVCDelegate?.setupAppearance?(forFirst: firstAppearance, forSecond: secondAppearance)
     }
@@ -202,7 +201,7 @@ public class InitialPageViewController: UIPageViewController {
 }
 
 // MARK: - UIPageViewControllerDataSource
-extension InitialPageViewController: UIPageViewControllerDataSource {
+extension SwiftImageCarouselVC: UIPageViewControllerDataSource {
 
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
