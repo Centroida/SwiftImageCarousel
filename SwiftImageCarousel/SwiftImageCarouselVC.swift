@@ -9,32 +9,30 @@ import UIKit
 
 /// The delegate of a SwiftImageCarouselVC object must adopt this protocol. Optional methods of the protocol allow  the delegate to configure the appearance of the view controllers, the timer and get notified when a new image is shown
 @objc public protocol SwiftImageCarouselVCDelegate: class {
-    // TODO: Work on more functions to add possibly as well as naming?
 
-    /// Delegate method that fires when the timer starts.
-    /// In this way, a developer can keep track of all the properties the timer has when it was started.
+    /// Fires when the timer starts helps to track of all the properties the timer has when it was started.
     ///
     /// - Parameter timer: The timer that manages the automatic swiping of images
     @objc optional func didStartTimer(_ timer: Timer)
 
-    ///  Delegate method that fires when the timer is on and a new item controller gets instantiated every few seconds.
+    ///  Fires when the timer is on and a new SwiftImageCarouselItemVC gets instantiated every few seconds.
     ///
     /// - Parameter pageItemController: The next pageItemController that has been initialized due to the timer ticking
     @objc optional func didGetNextITemController(next pageItemController: SwiftImageCarouselItemVC)
 
-    /// Delegate method that fires when an unwinding action coming from GalleryItemVC is performed and a new item controller gets instantiated.
+    /// Fires when an unwinding action coming from GalleryItemVC is performed and a new SwiftImageCarouselItemVC gets instantiated.
     ///
     /// - Parameter pageItemController: The page controller received when unwinding the GalleryVC
     @objc optional func didUnwindToPageViewController(unwindedTo pageItemController: SwiftImageCarouselItemVC)
 
-    ///  Use it to setup the appearance of the page controls (dots) of both the SwiftImageCarouselVC and the GalleryVC. Fires when SwiftImageCarouselVC is initialized
+    ///  Fires when SwiftImageCarouselVC is initialized. Use it to setup the appearance of the paging controls (dots) of both the SwiftImageCarouselVC and the GalleryVC.
     ///
     /// - Parameters:
     ///   - firstPageControl: The page control in SwiftImageCarouselVC
     ///   - secondPageControl: The page control in GalleryVC
     @objc optional func setupAppearance(forFirst firstPageControl: UIPageControl, forSecond secondPageControl: UIPageControl)
     
-    /// Fires when a pageItemController is tapped
+    /// Fires when a pageItemController is tapped.
     ///
     /// - Parameter pageItemController: The SwiftImageCarouselItemVC taht is tapped
     @objc optional func didTapPageItemController(pageItemController: SwiftImageCarouselItemVC)
