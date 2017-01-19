@@ -203,7 +203,7 @@ extension SwiftImageCarouselVC: UIPageViewControllerDataSource {
 
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
-        guard contentImageURLs.count > 0 else { return nil }
+        guard contentImageURLs.count > 1  else { return nil }
 
         let itemController = viewController as! SwiftImageCarouselItemVC
 
@@ -213,7 +213,7 @@ extension SwiftImageCarouselVC: UIPageViewControllerDataSource {
 
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 
-        guard contentImageURLs.count > 0 else { return nil }
+        guard contentImageURLs.count > 1 else { return nil }
 
         let itemController = viewController as! SwiftImageCarouselItemVC
         
