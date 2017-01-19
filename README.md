@@ -47,11 +47,11 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Project Name>' do
-pod 'SwiftImageCarousel', '1.0.1'
+pod 'SwiftImageCarousel', '1.0.2'
 end
 
 ```
-<b>OR</b>
+<b>Or</b>
 
 ```
 source 'https://github.com/Centroida/SwiftImageCarousel.git'
