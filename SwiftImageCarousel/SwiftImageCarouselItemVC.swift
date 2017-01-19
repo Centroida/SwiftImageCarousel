@@ -18,7 +18,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
     var itemIndex: Int = 0
     
     /// Passing on the delegate, so that it will get notified when an image is tapped
-    var SwiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
+    var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
     
     /// Enables/disables the showing of the modal gallery
     var showModalGalleryOnTap = true
@@ -29,7 +29,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
 
     // MARK: - Functions
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
-        SwiftImageCarouselVCDelegate?.didTapSwiftImageCarouselItemVC?(SwiftImageCarouselItemController: self)
+        swiftImageCarouselVCDelegate?.didTapSwiftImageCarouselItemVC?(SwiftImageCarouselItemController: self)
         if showModalGalleryOnTap {
             self.performSegue(withIdentifier: "showGalleryVC", sender: nil)
         }

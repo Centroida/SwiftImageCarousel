@@ -45,7 +45,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
     public var contentImageURLs: [String] = []
 
     // MARK: - Delegate
-    weak public var SwiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
+    weak public var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
     
     /// Enables/disables the showing of the modal gallery
     public var showModalGalleryOnTap = true
@@ -76,7 +76,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
         if let scrollablePageItemVC = segue.source as? GalleryItemVC {
             if let currentController = getItemController(scrollablePageItemVC.itemIndex) {
-                SwiftImageCarouselVCDelegate?.didunwindToSwiftImageCarouselVC?(unwindedTo: currentController)
+                swiftImageCarouselVCDelegate?.didunwindToSwiftImageCarouselVC?(unwindedTo: currentController)
                 pageIndicatorIndex = currentController.itemIndex
                 let startingViewControllers = [currentController]
                 setViewControllers(startingViewControllers, direction: .forward, animated: false, completion: nil)
@@ -105,7 +105,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
         // Use delegate method to retrieve the next view controller.
         guard let nextViewController = pageViewController(self, viewControllerAfter: currentViewController) as? SwiftImageCarouselItemVC else { return }
 
-        SwiftImageCarouselVCDelegate?.didGetNextITemController?(next: nextViewController)
+        swiftImageCarouselVCDelegate?.didGetNextITemController?(next: nextViewController)
 
         // Need to keep track of page indicator index in order to update it properly.
         pageIndicatorIndex = nextViewController.itemIndex
@@ -120,7 +120,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
             let pageItemController = storyboard!.instantiateViewController(withIdentifier: "SwiftImageCarouselItemVC") as! SwiftImageCarouselItemVC
             pageItemController.itemIndex = itemIndex
             pageItemController.contentImageURLs = contentImageURLs
-            pageItemController.SwiftImageCarouselVCDelegate = SwiftImageCarouselVCDelegate
+            pageItemController.swiftImageCarouselVCDelegate = swiftImageCarouselVCDelegate
             pageItemController.showModalGalleryOnTap = showModalGalleryOnTap
             return pageItemController
         }
@@ -137,7 +137,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
     // MARK: - Timer Function
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: swipeTimeIntervalSeconds, target: self, selector: #selector(getNextItemController), userInfo: nil, repeats: true)
-        SwiftImageCarouselVCDelegate?.didStartTimer?(timer)
+        swiftImageCarouselVCDelegate?.didStartTimer?(timer)
     }
 
     // MARK: - Page Indicator
@@ -160,7 +160,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
         /// Custom appearance setup with delegation from outside this framework.
         let firstAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [SwiftImageCarouselVC.self])
         let secondAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [GalleryVC.self])
-        SwiftImageCarouselVCDelegate?.setupAppearance?(forFirst: firstAppearance, forSecond: secondAppearance)
+        swiftImageCarouselVCDelegate?.setupAppearance?(forFirst: firstAppearance, forSecond: secondAppearance)
     }
 
     // MARK: - View Lifecycle
