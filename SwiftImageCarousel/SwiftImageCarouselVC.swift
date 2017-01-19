@@ -35,7 +35,7 @@ import UIKit
     /// Fires when a pageItemController is tapped.
     ///
     /// - Parameter pageItemController: The SwiftImageCarouselItemVC taht is tapped
-    @objc optional func didTapPageItemController(pageItemController: SwiftImageCarouselItemVC)
+    @objc optional func didTapSwiftImageCarouselItemVC(pageItemController: SwiftImageCarouselItemVC)
 }
 
 

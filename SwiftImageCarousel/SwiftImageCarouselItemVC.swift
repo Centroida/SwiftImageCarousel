@@ -29,7 +29,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
 
     // MARK: - Functions
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
-        pageVCDelegate?.didTapPageItemController?(pageItemController: self)
+        pageVCDelegate?.didTapSwiftImageCarouselItemVC?(pageItemController: self)
         if showModalGalleryOnTap {
             self.performSegue(withIdentifier: "showScrollable", sender: nil)
         }
