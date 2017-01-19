@@ -58,6 +58,7 @@ source 'https://github.com/Centroida/SwiftImageCarousel.git'
 
 platform :ios, '10.0'
 use_frameworks!
+```
 
 ### Alternatively:
 
