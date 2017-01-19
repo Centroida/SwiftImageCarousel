@@ -16,12 +16,15 @@ public class SwiftImageCarouselItemVC: UIViewController {
     // MARK: - Variables
     ///  Keeps track of the SwiftImageCarouselItemVC currently in view. Passed to GalleryVC so it knows what GalleryItemVC to display.
     var itemIndex: Int = 0
-    
+
     /// Passing on the delegate, so that it will get notified when an image is tapped
     var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
-    
+
     /// Enables/disables the showing of the modal gallery
     var showModalGalleryOnTap = true
+
+    /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit
+    var contentMode: UIViewContentMode = .scaleAspectFit
 
     /// The array with the image URLs, passed to the GalleryVC.
     var contentImageURLs: [String]!
@@ -38,6 +41,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
     fileprivate func setupUI(){
         /// The UIImageView extension function that is used to download an image and save it to cache if possible.
         contentImageView.image = UIImage.bundledImage(named: "no-image")
+        contentImageView.contentMode = contentMode
         _ = contentImageView.downloadImageAsync(contentsOf: contentImageURLs[itemIndex], saveToCache: imageCache)
     }
 

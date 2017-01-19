@@ -31,7 +31,7 @@ import UIKit
     ///   - firstPageControl: The page control in SwiftImageCarouselVC
     ///   - secondPageControl: The page control in GalleryVC
     @objc optional func setupAppearance(forFirst firstPageControl: UIPageControl, forSecond secondPageControl: UIPageControl)
-    
+
     /// Fires when a pageItemController is tapped.
     ///
     /// - Parameter SwiftImageCarouselItemController: The SwiftImageCarouselItemVC taht is tapped
@@ -46,9 +46,12 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
     // MARK: - Delegate
     weak public var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
-    
+
     /// Enables/disables the showing of the modal gallery
     public var showModalGalleryOnTap = true
+
+    /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit
+    public var contentMode: UIViewContentMode = .scaleAspectFit
 
     // MARK: - Timer properties
     /// The timer that is used to move the next page item
@@ -56,13 +59,13 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
     /// Enables/disables the automatic swiping of the timer. Default value is true.
     public var isTimerOn = true
-    
+
     /// The interval on which the view changes when the timer is on. Default value is 3 seconds.
     public var swipeTimeIntervalSeconds = 3.0
 
     /// This variable keeps track of the index used in the page control in terms of the array of URLs.
     fileprivate var pageIndicatorIndex = 0
-    
+
     /// This variable keeps track of the index of the SwiftImageCarouselVC in terms of the array of URLs.
     fileprivate var currentPageViewControllerItemIndex = 0
 
@@ -115,13 +118,14 @@ public class SwiftImageCarouselVC: UIPageViewController {
     /// A method for getting SwiftImageCarouselItemVC with a given index.
     func getItemController(_ itemIndex: Int) -> SwiftImageCarouselItemVC? {
         /// The same method but within func getItemController(_ itemIndex: Int) used to just avoid typing it twice in the if-else below.
-        
+
         func innerGetPageItemController (_ itemIndex: Int) -> SwiftImageCarouselItemVC {
             let pageItemController = storyboard!.instantiateViewController(withIdentifier: "SwiftImageCarouselItemVC") as! SwiftImageCarouselItemVC
             pageItemController.itemIndex = itemIndex
             pageItemController.contentImageURLs = contentImageURLs
             pageItemController.swiftImageCarouselVCDelegate = swiftImageCarouselVCDelegate
             pageItemController.showModalGalleryOnTap = showModalGalleryOnTap
+            pageItemController.contentMode = contentMode
             return pageItemController
         }
 
@@ -130,7 +134,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
         } else if itemIndex == contentImageURLs.count {
             return innerGetPageItemController(0)
         }
-        
+
         return nil
     }
 
@@ -167,7 +171,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
-        
+
         loadPageViewController()
         setupPageControl()
     }
@@ -216,7 +220,7 @@ extension SwiftImageCarouselVC: UIPageViewControllerDataSource {
         guard contentImageURLs.count > 1 else { return nil }
 
         let itemController = viewController as! SwiftImageCarouselItemVC
-        
+
         let previousIndex = itemController.itemIndex + 1 < contentImageURLs.count ? (itemController.itemIndex + 1) : (0)
         return getItemController(previousIndex)
     }
