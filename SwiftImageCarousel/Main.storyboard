@@ -42,7 +42,7 @@
                     <connections>
                         <outlet property="contentImageView" destination="iG6-GC-4H2" id="ddq-lv-PFi"/>
                         <outlet property="view" destination="Dxa-Cv-Rlz" id="6tG-mC-ibm"/>
-                        <segue destination="h2c-yw-7tI" kind="modal" identifier="showScrollable" modalTransitionStyle="crossDissolve" id="nnd-Rd-uU9"/>
+                        <segue destination="h2c-yw-7tI" kind="modal" identifier="showScrollable" id="59m-Ao-9MX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7IJ-QC-FfU" userLabel="First Responder" sceneMemberID="firstResponder"/>

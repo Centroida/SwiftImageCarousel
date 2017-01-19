@@ -85,6 +85,7 @@
 		267A9B441E27DB7F00FBA1A6 /* SwiftImageCarousel */ = {
 			isa = PBXGroup;
 			children = (
+				2676D2ED1E28C9A30072B23F /* AppDelegate.swift */,
 				267A9B5C1E27DC0F00FBA1A6 /* ViewControllers */,
 				267A9B5D1E27DC2B00FBA1A6 /* SupportingFiles */,
 			);
@@ -114,7 +115,6 @@
 		267A9B5D1E27DC2B00FBA1A6 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2676D2ED1E28C9A30072B23F /* AppDelegate.swift */,
 				2676D2EE1E28C9A30072B23F /* Extensions.swift */,
 				2676D2F01E28C9A30072B23F /* Main.storyboard */,
 				267A9B451E27DB7F00FBA1A6 /* SwiftImageCarousel.h */,

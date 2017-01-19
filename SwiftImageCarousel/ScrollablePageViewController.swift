@@ -1,5 +1,3 @@
-import UIKit
-
 //
 //  ScrollablePageViewController.swift
 //  SwiftImageCarousel
@@ -7,25 +5,25 @@ import UIKit
 //  Created by Deyan Aleksandrov on 1/3/17.
 //
 
+import UIKit
+
 /// ScrollablePageViewController is pretty much the same class as InitialOageViewController both in the storyboard which the reason that most variables and functions are not described into detail below. Unlike its cousin though, it instantiates a class - ScrollablePageItemController - that adds on the abilities to scroll and zoom on the image in view.
 class ScrollablePageViewController: UIPageViewController {
 
     // MARK: - Variables
-    var initialItemIndex: Int?
     var pageIndicatorIndex = 0
-    var contentImageURLs: [String]!
+    var contentImageURLs = [String]()
 
     // MARK: - Functions
     /// A method that helps to instantiate the correct ScrollablePageItemController. It gets called rightaway when segue with identifier showScrollable finishes.
-    fileprivate func loadPageViewController() {
+    fileprivate func loadPageViewController(atIndex startingViewControllerIndex: Int) {
         dataSource = self
 
-        if contentImageURLs.count > 0 {
-            let firstController = getItemController(0)!
+        if !contentImageURLs.isEmpty {
+            let firstController = getItemController(startingViewControllerIndex)!
             let startingViewControllers = [firstController]
-            setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+            setViewControllers(startingViewControllers, direction: .forward, animated: true, completion: nil)
         }
-        self.view.backgroundColor = UIColor.black
     }
     
     /// A method that gets ScrollablePageItemController with a given index.
@@ -36,13 +34,9 @@ class ScrollablePageViewController: UIPageViewController {
 
         if itemIndex < contentImageURLs.count {
             let scrollablePageItemController = storyboard!.instantiateViewController(withIdentifier: "ScrollablePageItemController") as! ScrollablePageItemController
-            if initialItemIndex != nil {
-                scrollablePageItemController.itemIndex = initialItemIndex!
-                initialItemIndex = nil
-            } else {
-                scrollablePageItemController.itemIndex = itemIndex
-            }
+            scrollablePageItemController.itemIndex = itemIndex
             scrollablePageItemController.productImageURL = contentImageURLs[scrollablePageItemController.itemIndex]
+            
             return scrollablePageItemController
         }
         return nil
@@ -57,11 +51,17 @@ class ScrollablePageViewController: UIPageViewController {
         return pageIndicatorIndex
     }
 
+    fileprivate func setupUI() {
+        view.backgroundColor = .black
+    }
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadPageViewController()
+        loadPageViewController(atIndex: pageIndicatorIndex)
+        setupUI()
     }
+    
     override var prefersStatusBarHidden : Bool { return true }
 
     /// A method fixing the bounds of the image so that page control with the dots does not cover that particular image when a user zooms in.
@@ -71,7 +71,7 @@ class ScrollablePageViewController: UIPageViewController {
             if view is UIScrollView {
                 view.frame = UIScreen.main.bounds
             } else if view is UIPageControl {
-                view.backgroundColor = UIColor.clear
+                view.backgroundColor = .clear
             }
         }
     }

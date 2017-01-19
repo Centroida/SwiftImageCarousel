@@ -7,64 +7,70 @@ import UIKit
 //  Created by Deyan Aleksandrov on 1/3/17.
 //
 
-/// Protocol implementing a bunch of functions to be used outside of the framework.
+/// The delegate of a InitialPageViewController object must adopt this protocol. Optional methods of the protocol allow  the delegate to configure the appearance of the view controllers, the timer and get notified when a new image is shown
 @objc public protocol InitialPageViewControllerDelegate: class {
     // TODO: Work on more functions to add possibly as well as naming?
 
     /// Delegate method that fires when the timer starts.
     /// In this way, a developer can keep track of all the properties the timer has when it was started.
     ///
-    /// - Parameter timer: The timer received from the delegating class.
+    /// - Parameter timer: The timer that manages the automatic swiping of images
     @objc optional func didStartTimer(_ timer: Timer)
 
-    ///  Delegate method that fires when the timer is on and a new item controller gets instantiated every few seconds. In this way, a developer can keep track of the newly instantiated pageItemController with class InitialPageItemController.
+    ///  Delegate method that fires when the timer is on and a new item controller gets instantiated every few seconds.
     ///
-    /// - Parameter pageItemController: The page controller (with class InitialPageItemController) received from the delegating class when instantiating next item controller.
+    /// - Parameter pageItemController: The next pageItemController that has been initialized due to the timer ticking
     @objc optional func didGetNextITemController(next pageItemController: InitialPageItemController)
 
-    /// Delegate method that fires when an unwinding action coming from ScrollablePageItemController is performed and a new item controller gets instantiated. In this way, a developer can keep track of the newly instantiated pageItemController with class InitialPageItemController.
+    /// Delegate method that fires when an unwinding action coming from ScrollablePageItemController is performed and a new item controller gets instantiated.
     ///
-    /// - Parameter pageItemController: The page controller (with class InitialPageItemController) received from the delegating class when unwinding.
+    /// - Parameter pageItemController: The page controller received when unwinding the ScrollablePageViewController
     @objc optional func didUnwindToPageViewController(unwindedTo pageItemController: InitialPageItemController)
 
-    ///  Delegate method that fires when InitialPageViewController gets into view in an application implementing this framework.
-    ///  (Please note that by PAGE CONTROL, it is meant the dots that keep track of the current view when Page View Controller Transition Style is Scroll.)
-    ///  Using this method, a developer can setup the appearance of both the first(the one in InitialPageViewController) and the second(the one in ScrollablePageViewController) page controls at once if they need to.
-    ///  The page controls cannot be seen instantiated in any of the classes that belong to in this particular framework. The reason for that is they come by default when implementing    UIPageViewController class.
+    ///  Using this method, a developer can setup the appearance of the page controls (dots) of both the InitialPageViewController and the ScrollablePageViewController. This delegate fires when InitialPageViewController is initialized
     ///
     /// - Parameters:
     ///   - firstPageControl: The page control in InitialPageViewController
     ///   - secondPageControl: The page control in ScrollablePageViewController
     @objc optional func setupAppearance(forFirst firstPageControl: UIPageControl, forSecond secondPageControl: UIPageControl)
+    
+    
+    /// Fires when a pageItemController is tapped
+    ///
+    /// - Parameter pageItemController: The InitialPageItemController taht is tapped
+    @objc optional func didTapPageItemController(pageItemController: InitialPageItemController)
 }
 
 
 ///  InitialPageViewController is the controller base class and initilizes the first view the user sees when a developer implements this carousel. It implements methods used for instantiating the proper page view, setting up the page controller appearance and setting up the timer used for automatic swiping of the page views.
 public class InitialPageViewController: UIPageViewController {
-
-    /// Default URLs are not provided. They need to be set up when using framework.
+    /// The model array of image urls used in the carousel
     public var contentImageURLs: [String] = []
 
     // MARK: - Delegate
-    /// InitialPageViewController delegate variable to be used to get access to functions in InitialPageViewControllerDelegate.
     weak public var pageVCDelegate: InitialPageViewControllerDelegate?
+    
+    /// Enables/disables the showing of the modal gallery
+    public var showModalGalleryOnTap = true
 
     // MARK: - Timer properties
-    /// The timer variable.
+    /// The timer that is used to move the next page item
     var timer = Timer()
-    /// Timer ON/OFF boolean variable. Timer for automatic swiping is set true(or ON) by default. If a developer wants it off, they need to set it to false.
+
+    /// Enables/disables the automatic swiping of the timer. Default value is true.
     public var isTimerOn = true
-    /// The interval on which the view changes when timer is on. Default is 3 seconds.
+    
+    /// The interval on which the view changes when the timer is on. Default value is 3 seconds.
     public var swipeTimeIntervalSeconds = 3.0
 
-    // MARK: - Variables
     /// This variable keeps track of the index used in the page control in terms of the array of URLs.
     fileprivate var pageIndicatorIndex = 0
+    
     /// This variable keeps track of the index of the InitialPageViewController in terms of the array of URLs.
     fileprivate var currentPageViewControllerItemIndex = 0
 
     // MARK: - Unwind segue
-    /// In this unwind with segue method, it is made sure that the view that will be instantiated has the proper image (meaning that same that we unwinded from).
+    /// In this unwind method, it is made sure that the view that will be instantiated has the proper image (meaning that same that we unwinded from).
     /// It is also made sure that that pageIndicatorIndex is setup to the proper dot shows up on the page control.
     @IBAction func unwindToPageViewController(withSegue segue: UIStoryboardSegue) {
 
@@ -82,13 +88,10 @@ public class InitialPageViewController: UIPageViewController {
     }
 
     // MARK: - Functions
-    /// A method that gets called when InitialPageViewController gets called for the first time. It then gets called every time on viewDidLoad but it actully won't matter if the timer is on.
+    /// Loads a starting view controller from the model array with an index. Called on viewDidLoad()
     ///
-    /// - Parameter index: The index which a developer would want to have as a starting point for the image carousel. One would usually want to start with the first one which is why the default index is 0.
+    /// - Parameter index: The index identifying which view controller from the model will be loaded
     func loadPageViewController(atIndex index: Int = 0) {
-
-        dataSource = self
-
         if contentImageURLs.count > 0 {
             if let firstController = getItemController(index) {
                 let startingViewControllers = [firstController]
@@ -98,8 +101,7 @@ public class InitialPageViewController: UIPageViewController {
         self.view.backgroundColor = .white
     }
 
-
-    /// A method for getting the next InitialPageItemController when the timer is on.
+    /// A method for getting the next InitialPageItemController. Called only by the timer selector.
     @objc func getNextItemController() {
         guard let currentViewController = viewControllers?.first else { return }
 
@@ -116,11 +118,13 @@ public class InitialPageViewController: UIPageViewController {
     /// A method for getting InitialPageItemController with a given index.
     func getItemController(_ itemIndex: Int) -> InitialPageItemController? {
         /// The same method but within func getItemController(_ itemIndex: Int) used to just avoid typing it twice in the if-else below.
+        
         func innerGetPageItemController (_ itemIndex: Int) -> InitialPageItemController {
             let pageItemController = storyboard!.instantiateViewController(withIdentifier: "InitialPageItemController") as! InitialPageItemController
             pageItemController.itemIndex = itemIndex
-            pageItemController.imageURL = contentImageURLs[itemIndex]
             pageItemController.contentImageURLs = contentImageURLs
+            pageItemController.pageVCDelegate = pageVCDelegate
+            pageItemController.showModalGalleryOnTap = showModalGalleryOnTap
             return pageItemController
         }
 
@@ -129,6 +133,7 @@ public class InitialPageViewController: UIPageViewController {
         } else if itemIndex == contentImageURLs.count {
             return innerGetPageItemController(0)
         }
+        
         return nil
     }
 
@@ -164,6 +169,8 @@ public class InitialPageViewController: UIPageViewController {
     // MARK: - View Lifecycle
     override public func viewDidLoad() {
         super.viewDidLoad()
+        dataSource = self
+        
         loadPageViewController()
         setupPageControl()
     }
@@ -181,7 +188,7 @@ public class InitialPageViewController: UIPageViewController {
 
     // A method we use fixing the bounds of the image so that page control with the dots does not cover that particular image when a user zooms in.
     // We use it in ScrollablePageItemController but we also will need to implement it here in order to avoid image position shift when segueing back and forth between Scrollable Page View Controller and ScrollablePageItemController.
-    // Works buggy with embedded UIImage. Works fine with newly instantiated storyboard.
+    // Works buggy when embeding. Works ok with newly instantiated storyboard.
     //    override public func viewDidLayoutSubviews() {
     //        super.viewDidLayoutSubviews()
     //        for view in self.view.subviews {
