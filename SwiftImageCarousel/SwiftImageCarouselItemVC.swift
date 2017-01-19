@@ -18,7 +18,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
     var itemIndex: Int = 0
     
     /// Passing on the delegate, so that it will get notified when an image is tapped
-    var pageVCDelegate: SwiftImageCarouselVCDelegate?
+    var SwiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
     
     /// Enables/disables the showing of the modal gallery
     var showModalGalleryOnTap = true
@@ -29,19 +29,20 @@ public class SwiftImageCarouselItemVC: UIViewController {
 
     // MARK: - Functions
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
-        pageVCDelegate?.didTapSwiftImageCarouselItemVC?(pageItemController: self)
+        SwiftImageCarouselVCDelegate?.didTapSwiftImageCarouselItemVC?(SwiftImageCarouselItemController: self)
         if showModalGalleryOnTap {
-            self.performSegue(withIdentifier: "showScrollable", sender: nil)
+            self.performSegue(withIdentifier: "showGalleryVC", sender: nil)
         }
     }
 
     fileprivate func setupUI(){
         /// The UIImageView extension function that is used to download an image and save it to cache if possible.
+        contentImageView.image = UIImage.bundledImage(named: "no-image")
         _ = contentImageView.downloadImageAsync(contentsOf: contentImageURLs[itemIndex], saveToCache: imageCache)
     }
 
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showScrollable" {
+        if segue.identifier == "showGalleryVC" {
             if let scrollablePageVC = segue.destination as? GalleryVC {
                 scrollablePageVC.pageIndicatorIndex = itemIndex
                 scrollablePageVC.contentImageURLs = contentImageURLs

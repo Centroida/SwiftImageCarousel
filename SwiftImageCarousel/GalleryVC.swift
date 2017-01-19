@@ -15,7 +15,7 @@ class GalleryVC: UIPageViewController {
     var contentImageURLs = [String]()
 
     // MARK: - Functions
-    /// A method that helps to instantiate the correct GalleryItemVC. It gets called rightaway when segue with identifier showScrollable finishes.
+    /// A method that helps to instantiate the correct GalleryItemVC. It gets called rightaway when segue with identifier showGalleryVC finishes.
     fileprivate func loadPageViewController(atIndex startingViewControllerIndex: Int) {
         dataSource = self
 

@@ -24,11 +24,12 @@ class GalleryItemVC: UIViewController {
     var productImageURL: String?
 
     @IBAction func tapBigImage(_ sender: UITapGestureRecognizer) {
-        self.performSegue(withIdentifier: "unwindToPageViewController", sender: self)
+        self.performSegue(withIdentifier: "unwindToSwiftImageCarouselVC", sender: self)
     }
 
     // MARK: - setupUI Function
     fileprivate func setupUI(){
+        contentImageView.image = UIImage.bundledImage(named: "no-image")
         _ = contentImageView.downloadImageAsync(contentsOf: productImageURL, saveToCache: imageCache)
         scrollView?.contentSize = contentImageView.frame.size
     }
