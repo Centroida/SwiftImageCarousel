@@ -1,5 +1,5 @@
 //
-//  ScrollablePageViewController.swift
+//  GalleryVC.swift
 //  SwiftImageCarousel
 //
 //  Created by Deyan Aleksandrov on 1/3/17.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-/// ScrollablePageViewController is pretty much the same class as InitialOageViewController both in the storyboard which the reason that most variables and functions are not described into detail below. Unlike its cousin though, it instantiates a class - ScrollablePageItemController - that adds on the abilities to scroll and zoom on the image in view.
-class ScrollablePageViewController: UIPageViewController {
+/// GalleryVC is pretty much the same class as InitialOageViewController both in the storyboard which the reason that most variables and functions are not described into detail below. Unlike its cousin though, it instantiates a class - GalleryItemVC - that adds on the abilities to scroll and zoom on the image in view.
+class GalleryVC: UIPageViewController {
 
     // MARK: - Variables
     var pageIndicatorIndex = 0
     var contentImageURLs = [String]()
 
     // MARK: - Functions
-    /// A method that helps to instantiate the correct ScrollablePageItemController. It gets called rightaway when segue with identifier showScrollable finishes.
+    /// A method that helps to instantiate the correct GalleryItemVC. It gets called rightaway when segue with identifier showScrollable finishes.
     fileprivate func loadPageViewController(atIndex startingViewControllerIndex: Int) {
         dataSource = self
 
@@ -26,18 +26,18 @@ class ScrollablePageViewController: UIPageViewController {
         }
     }
     
-    /// A method that gets ScrollablePageItemController with a given index.
+    /// A method that gets GalleryItemVC with a given index.
     ///
-    /// - Parameter itemIndex: The index for the particular ScrollablePageItemController needed based on contentImageURLs array.
-    /// - Returns: ScrollablePageItemController
-    fileprivate func getItemController(_ itemIndex: Int) -> ScrollablePageItemController? {
+    /// - Parameter itemIndex: The index for the particular GalleryItemVC needed based on contentImageURLs array.
+    /// - Returns: GalleryItemVC
+    fileprivate func getItemController(_ itemIndex: Int) -> GalleryItemVC? {
 
         if itemIndex < contentImageURLs.count {
-            let scrollablePageItemController = storyboard!.instantiateViewController(withIdentifier: "ScrollablePageItemController") as! ScrollablePageItemController
-            scrollablePageItemController.itemIndex = itemIndex
-            scrollablePageItemController.productImageURL = contentImageURLs[scrollablePageItemController.itemIndex]
+            let GalleryItemVC = storyboard!.instantiateViewController(withIdentifier: "GalleryItemVC") as! GalleryItemVC
+            GalleryItemVC.itemIndex = itemIndex
+            GalleryItemVC.productImageURL = contentImageURLs[GalleryItemVC.itemIndex]
             
-            return scrollablePageItemController
+            return GalleryItemVC
         }
         return nil
     }
@@ -78,13 +78,13 @@ class ScrollablePageViewController: UIPageViewController {
 }
 
 // MARK: - UIPageViewControllerDataSource
-extension ScrollablePageViewController: UIPageViewControllerDataSource {
+extension GalleryVC: UIPageViewControllerDataSource {
 
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
         guard contentImageURLs.count > 0 else { return nil }
 
-        let itemController = viewController as! ScrollablePageItemController
+        let itemController = viewController as! GalleryItemVC
 
         let nextIndex = itemController.itemIndex > 0 ? (itemController.itemIndex - 1) : (contentImageURLs.count - 1)
         return getItemController(nextIndex)
@@ -94,7 +94,7 @@ extension ScrollablePageViewController: UIPageViewControllerDataSource {
 
         guard contentImageURLs.count > 0 else { return nil }
 
-        let itemController = viewController as! ScrollablePageItemController
+        let itemController = viewController as! GalleryItemVC
 
         let previousIndex = itemController.itemIndex + 1 < contentImageURLs.count ? (itemController.itemIndex + 1) : (0)
         return getItemController(previousIndex)

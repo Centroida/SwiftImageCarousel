@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Initial Page Item Controller-->
+        <!--Swift Image Carousel ItemVC-->
         <scene sceneID="i2f-Xn-Jyi">
             <objects>
-                <viewController storyboardIdentifier="InitialPageItemController" id="RfP-Jq-vR5" customClass="InitialPageItemController" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SwiftImageCarouselItemVC" id="RfP-Jq-vR5" customClass="SwiftImageCarouselItemVC" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z4X-bv-dbc"/>
                         <viewControllerLayoutGuide type="bottom" id="c4E-OT-4sJ"/>
@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="190.5" y="1100.5"/>
         </scene>
-        <!--Scrollable Page View Controller-->
+        <!--GalleryVC-->
         <scene sceneID="pq9-i2-uwq">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h2c-yw-7tI" customClass="ScrollablePageViewController" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h2c-yw-7tI" customClass="GalleryVC" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1n6-Js-uzE"/>
                     <nil key="simulatedStatusBarMetrics"/>
                 </pageViewController>
@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="669" y="1101"/>
         </scene>
-        <!--Scrollable Page Item Controller-->
+        <!--Gallery ItemVC-->
         <scene sceneID="FO6-Mh-fAG">
             <objects>
-                <viewController storyboardIdentifier="ScrollablePageItemController" id="y6f-61-PVO" customClass="ScrollablePageItemController" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GalleryItemVC" id="y6f-61-PVO" customClass="GalleryItemVC" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4pb-9m-ukf"/>
                         <viewControllerLayoutGuide type="bottom" id="uh7-qW-4MK"/>

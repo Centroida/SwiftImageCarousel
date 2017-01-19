@@ -1,14 +1,14 @@
 import UIKit
 
 //
-//  ScrollablePageItemController
+//  GalleryItemVC
 //  SwiftImageCarousel
 //
 //  Created by Deyan Aleksandrov on 1/3/17.
 //
 
-/// ScrollablePageItemController is the controller class that gets instantiated by ScrollablePageViewController class. Pretty much the same as the SwiftImageCarouselVC-InitialPageItemController pair. It implements methods used for the downloading the image that needs to be displayed, a segue that unwinds to the SwiftImageCarouselVC as well as delegate methods for zooming in on the image in view - that is what mainly makes this class different than InitialPageItemController.
-class ScrollablePageItemController: UIViewController {
+/// GalleryItemVC is the controller class that gets instantiated by GalleryVC class. Pretty much the same as the SwiftImageCarouselVC-SwiftImageCarouselItemVC pair. It implements methods used for the downloading the image that needs to be displayed, a segue that unwinds to the SwiftImageCarouselVC as well as delegate methods for zooming in on the image in view - that is what mainly makes this class different than SwiftImageCarouselItemVC.
+class GalleryItemVC: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet var contentImageView: UIImageView!
@@ -41,7 +41,7 @@ class ScrollablePageItemController: UIViewController {
 }
 
 // MARK: - UIScrollViewDelegate
-extension ScrollablePageItemController: UIScrollViewDelegate {
+extension GalleryItemVC: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return contentImageView
     }

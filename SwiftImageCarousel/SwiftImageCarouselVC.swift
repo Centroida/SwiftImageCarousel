@@ -20,24 +20,24 @@ import UIKit
     ///  Delegate method that fires when the timer is on and a new item controller gets instantiated every few seconds.
     ///
     /// - Parameter pageItemController: The next pageItemController that has been initialized due to the timer ticking
-    @objc optional func didGetNextITemController(next pageItemController: InitialPageItemController)
+    @objc optional func didGetNextITemController(next pageItemController: SwiftImageCarouselItemVC)
 
-    /// Delegate method that fires when an unwinding action coming from ScrollablePageItemController is performed and a new item controller gets instantiated.
+    /// Delegate method that fires when an unwinding action coming from GalleryItemVC is performed and a new item controller gets instantiated.
     ///
-    /// - Parameter pageItemController: The page controller received when unwinding the ScrollablePageViewController
-    @objc optional func didUnwindToPageViewController(unwindedTo pageItemController: InitialPageItemController)
+    /// - Parameter pageItemController: The page controller received when unwinding the GalleryVC
+    @objc optional func didUnwindToPageViewController(unwindedTo pageItemController: SwiftImageCarouselItemVC)
 
-    ///  Use it to setup the appearance of the page controls (dots) of both the SwiftImageCarouselVC and the ScrollablePageViewController. Fires when SwiftImageCarouselVC is initialized
+    ///  Use it to setup the appearance of the page controls (dots) of both the SwiftImageCarouselVC and the GalleryVC. Fires when SwiftImageCarouselVC is initialized
     ///
     /// - Parameters:
     ///   - firstPageControl: The page control in SwiftImageCarouselVC
-    ///   - secondPageControl: The page control in ScrollablePageViewController
+    ///   - secondPageControl: The page control in GalleryVC
     @objc optional func setupAppearance(forFirst firstPageControl: UIPageControl, forSecond secondPageControl: UIPageControl)
     
     /// Fires when a pageItemController is tapped
     ///
-    /// - Parameter pageItemController: The InitialPageItemController taht is tapped
-    @objc optional func didTapPageItemController(pageItemController: InitialPageItemController)
+    /// - Parameter pageItemController: The SwiftImageCarouselItemVC taht is tapped
+    @objc optional func didTapPageItemController(pageItemController: SwiftImageCarouselItemVC)
 }
 
 
@@ -76,7 +76,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
         // Making sure that the proper page control appearance comes on here when unwinding.
         setupPageControl()
 
-        if let scrollablePageItemVC = segue.source as? ScrollablePageItemController {
+        if let scrollablePageItemVC = segue.source as? GalleryItemVC {
             if let currentController = getItemController(scrollablePageItemVC.itemIndex) {
                 pageVCDelegate?.didUnwindToPageViewController?(unwindedTo: currentController)
                 pageIndicatorIndex = currentController.itemIndex
@@ -100,12 +100,12 @@ public class SwiftImageCarouselVC: UIPageViewController {
         self.view.backgroundColor = .white
     }
 
-    /// A method for getting the next InitialPageItemController. Called only by the timer selector.
+    /// A method for getting the next SwiftImageCarouselItemVC. Called only by the timer selector.
     @objc func getNextItemController() {
         guard let currentViewController = viewControllers?.first else { return }
 
         // Use delegate method to retrieve the next view controller.
-        guard let nextViewController = pageViewController(self, viewControllerAfter: currentViewController) as? InitialPageItemController else { return }
+        guard let nextViewController = pageViewController(self, viewControllerAfter: currentViewController) as? SwiftImageCarouselItemVC else { return }
 
         pageVCDelegate?.didGetNextITemController?(next: nextViewController)
 
@@ -114,12 +114,12 @@ public class SwiftImageCarouselVC: UIPageViewController {
         setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
     }
 
-    /// A method for getting InitialPageItemController with a given index.
-    func getItemController(_ itemIndex: Int) -> InitialPageItemController? {
+    /// A method for getting SwiftImageCarouselItemVC with a given index.
+    func getItemController(_ itemIndex: Int) -> SwiftImageCarouselItemVC? {
         /// The same method but within func getItemController(_ itemIndex: Int) used to just avoid typing it twice in the if-else below.
         
-        func innerGetPageItemController (_ itemIndex: Int) -> InitialPageItemController {
-            let pageItemController = storyboard!.instantiateViewController(withIdentifier: "InitialPageItemController") as! InitialPageItemController
+        func innerGetPageItemController (_ itemIndex: Int) -> SwiftImageCarouselItemVC {
+            let pageItemController = storyboard!.instantiateViewController(withIdentifier: "SwiftImageCarouselItemVC") as! SwiftImageCarouselItemVC
             pageItemController.itemIndex = itemIndex
             pageItemController.contentImageURLs = contentImageURLs
             pageItemController.pageVCDelegate = pageVCDelegate
@@ -161,7 +161,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
         /// Custom appearance setup with delegation from outside this framework.
         let firstAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [SwiftImageCarouselVC.self])
-        let secondAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [ScrollablePageViewController.self])
+        let secondAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [GalleryVC.self])
         pageVCDelegate?.setupAppearance?(forFirst: firstAppearance, forSecond: secondAppearance)
     }
 
@@ -186,7 +186,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
     override public var prefersStatusBarHidden : Bool { return true }
 
     // A method we use fixing the bounds of the image so that page control with the dots does not cover that particular image when a user zooms in.
-    // We use it in ScrollablePageItemController but we also will need to implement it here in order to avoid image position shift when segueing back and forth between Scrollable Page View Controller and ScrollablePageItemController.
+    // We use it in GalleryItemVC but we also will need to implement it here in order to avoid image position shift when segueing back and forth between Scrollable Page View Controller and GalleryItemVC.
     // Works buggy when embeding. Works ok with newly instantiated storyboard.
     //    override public func viewDidLayoutSubviews() {
     //        super.viewDidLayoutSubviews()
@@ -207,7 +207,7 @@ extension SwiftImageCarouselVC: UIPageViewControllerDataSource {
 
         guard contentImageURLs.count > 0 else { return nil }
 
-        let itemController = viewController as! InitialPageItemController
+        let itemController = viewController as! SwiftImageCarouselItemVC
 
         let nextIndex = itemController.itemIndex > 0 ? (itemController.itemIndex - 1) : (contentImageURLs.count - 1)
         return getItemController(nextIndex)
@@ -217,7 +217,7 @@ extension SwiftImageCarouselVC: UIPageViewControllerDataSource {
 
         guard contentImageURLs.count > 0 else { return nil }
 
-        let itemController = viewController as! InitialPageItemController
+        let itemController = viewController as! SwiftImageCarouselItemVC
         
         let previousIndex = itemController.itemIndex + 1 < contentImageURLs.count ? (itemController.itemIndex + 1) : (0)
         return getItemController(previousIndex)
