@@ -50,6 +50,18 @@ extension UIImageView {
         return nil
     }
 }
+
+extension UIImage {
+    class func bundledImage(named: String) -> UIImage? {
+        let image = UIImage(named: named)
+        if image == nil {
+            return UIImage(named: named, in: Bundle(for: SwiftImageCarouselVC.classForCoder()), compatibleWith: nil)
+        }
+        return image
+    }
+}
+
+
 // MARK: - String
 extension String {
     // String as valid image url

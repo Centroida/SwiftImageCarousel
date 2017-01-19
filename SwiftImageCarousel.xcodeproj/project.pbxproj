@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2676D2E91E28C98A0072B23F /* InitialPageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2E51E28C98A0072B23F /* InitialPageItemController.swift */; };
-		2676D2EA1E28C98A0072B23F /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2E61E28C98A0072B23F /* InitialPageViewController.swift */; };
-		2676D2EB1E28C98A0072B23F /* ScrollablePageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2E71E28C98A0072B23F /* ScrollablePageItemController.swift */; };
-		2676D2EC1E28C98A0072B23F /* ScrollablePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2E81E28C98A0072B23F /* ScrollablePageViewController.swift */; };
+		2676D2E91E28C98A0072B23F /* SwiftImageCarouselItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2E51E28C98A0072B23F /* SwiftImageCarouselItemVC.swift */; };
+		2676D2EA1E28C98A0072B23F /* SwiftImageCarouselVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2E61E28C98A0072B23F /* SwiftImageCarouselVC.swift */; };
+		2676D2EB1E28C98A0072B23F /* GalleryItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2E71E28C98A0072B23F /* GalleryItemVC.swift */; };
+		2676D2EC1E28C98A0072B23F /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2E81E28C98A0072B23F /* GalleryVC.swift */; };
 		2676D2F11E28C9A30072B23F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2ED1E28C9A30072B23F /* AppDelegate.swift */; };
 		2676D2F21E28C9A30072B23F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D2EE1E28C9A30072B23F /* Extensions.swift */; };
 		2676D2F41E28C9A30072B23F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2676D2F01E28C9A30072B23F /* Main.storyboard */; };
 		267A9B4C1E27DB8000FBA1A6 /* SwiftImageCarousel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267A9B421E27DB7F00FBA1A6 /* SwiftImageCarousel.framework */; };
 		267A9B511E27DB8000FBA1A6 /* SwiftImageCarouselTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267A9B501E27DB8000FBA1A6 /* SwiftImageCarouselTests.swift */; };
 		267A9B531E27DB8000FBA1A6 /* SwiftImageCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 267A9B451E27DB7F00FBA1A6 /* SwiftImageCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2689F42F1E30D205006F1E67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2689F42E1E30D205006F1E67 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,10 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2676D2E51E28C98A0072B23F /* InitialPageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialPageItemController.swift; sourceTree = "<group>"; };
-		2676D2E61E28C98A0072B23F /* InitialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
-		2676D2E71E28C98A0072B23F /* ScrollablePageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollablePageItemController.swift; sourceTree = "<group>"; };
-		2676D2E81E28C98A0072B23F /* ScrollablePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollablePageViewController.swift; sourceTree = "<group>"; };
+		2676D2E51E28C98A0072B23F /* SwiftImageCarouselItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftImageCarouselItemVC.swift; sourceTree = "<group>"; };
+		2676D2E61E28C98A0072B23F /* SwiftImageCarouselVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftImageCarouselVC.swift; sourceTree = "<group>"; };
+		2676D2E71E28C98A0072B23F /* GalleryItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryItemVC.swift; sourceTree = "<group>"; };
+		2676D2E81E28C98A0072B23F /* GalleryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
 		2676D2ED1E28C9A30072B23F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2676D2EE1E28C9A30072B23F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2676D2F01E28C9A30072B23F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +44,7 @@
 		267A9B4B1E27DB8000FBA1A6 /* SwiftImageCarouselTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftImageCarouselTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		267A9B501E27DB8000FBA1A6 /* SwiftImageCarouselTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftImageCarouselTests.swift; sourceTree = "<group>"; };
 		267A9B521E27DB8000FBA1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2689F42E1E30D205006F1E67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		267A9B441E27DB7F00FBA1A6 /* SwiftImageCarousel */ = {
 			isa = PBXGroup;
 			children = (
+				2676D2ED1E28C9A30072B23F /* AppDelegate.swift */,
 				267A9B5C1E27DC0F00FBA1A6 /* ViewControllers */,
 				267A9B5D1E27DC2B00FBA1A6 /* SupportingFiles */,
 			);
@@ -103,10 +106,10 @@
 		267A9B5C1E27DC0F00FBA1A6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2676D2E61E28C98A0072B23F /* InitialPageViewController.swift */,
-				2676D2E51E28C98A0072B23F /* InitialPageItemController.swift */,
-				2676D2E81E28C98A0072B23F /* ScrollablePageViewController.swift */,
-				2676D2E71E28C98A0072B23F /* ScrollablePageItemController.swift */,
+				2676D2E61E28C98A0072B23F /* SwiftImageCarouselVC.swift */,
+				2676D2E51E28C98A0072B23F /* SwiftImageCarouselItemVC.swift */,
+				2676D2E81E28C98A0072B23F /* GalleryVC.swift */,
+				2676D2E71E28C98A0072B23F /* GalleryItemVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -114,8 +117,8 @@
 		267A9B5D1E27DC2B00FBA1A6 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2676D2ED1E28C9A30072B23F /* AppDelegate.swift */,
 				2676D2EE1E28C9A30072B23F /* Extensions.swift */,
+				2689F42E1E30D205006F1E67 /* Assets.xcassets */,
 				2676D2F01E28C9A30072B23F /* Main.storyboard */,
 				267A9B451E27DB7F00FBA1A6 /* SwiftImageCarousel.h */,
 				267A9B461E27DB7F00FBA1A6 /* Info.plist */,
@@ -217,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2689F42F1E30D205006F1E67 /* Assets.xcassets in Resources */,
 				2676D2F41E28C9A30072B23F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,12 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2676D2EC1E28C98A0072B23F /* ScrollablePageViewController.swift in Sources */,
+				2676D2EC1E28C98A0072B23F /* GalleryVC.swift in Sources */,
 				2676D2F21E28C9A30072B23F /* Extensions.swift in Sources */,
-				2676D2EA1E28C98A0072B23F /* InitialPageViewController.swift in Sources */,
-				2676D2EB1E28C98A0072B23F /* ScrollablePageItemController.swift in Sources */,
+				2676D2EA1E28C98A0072B23F /* SwiftImageCarouselVC.swift in Sources */,
+				2676D2EB1E28C98A0072B23F /* GalleryItemVC.swift in Sources */,
 				2676D2F11E28C9A30072B23F /* AppDelegate.swift in Sources */,
-				2676D2E91E28C98A0072B23F /* InitialPageItemController.swift in Sources */,
+				2676D2E91E28C98A0072B23F /* SwiftImageCarouselItemVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

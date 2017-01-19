@@ -41,6 +41,7 @@ To integrate SwiftImageCarousel into your Xcode project using CocoaPods, specify
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/Centroida/SwiftImageCarousel.git'
 
 platform :ios, '10.0'
 use_frameworks!
@@ -58,13 +59,6 @@ source 'https://github.com/Centroida/SwiftImageCarousel.git'
 platform :ios, '10.0'
 use_frameworks!
 
-target '<Your Target Project Name>' do
-pod 'SwiftImageCarousel', '1.0.1'
-end
-
-```
-
-
 ### Alternatively:
 
 - Git submodule add https://github.com/Centroida/SwiftImageCarousel.git.
@@ -73,7 +67,7 @@ end
 - Build the SwiftImageCarousel as a target before you import it
 - It is ready to be imported and used
 
-<b>OR</b>
+<b>Or</b>
 
 - Download directly from the github link https://github.com/Centroida/SwiftImageCarousel
 - Run your project, right click on the name of your project in the files navigator and choose "Add Files to <i>NameOfYourProject</i>"
@@ -91,41 +85,41 @@ import SwiftImageCarousel
 ```
 ### Providing the images as URLs and instantiating a VC with carousel that takes over the screen
 
-Make sure you do this in viewDidAppear(), because it will not work in viewDidLoad().
+The following instantiates the SwiftImageCarousel:
 
 ```swift   
 import UIKit
 import SwiftImageCarousel
 
-class RandomViewController: UIViewController {
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
-        let vc = s.instantiateInitialViewController() as! InitialPageViewController
+class ViewController: UIViewController {
+    // For example, when a button is pressed
+    @IBAction func showCarouselButtonTapped(_ sender: UIButton) {
+
+        let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+        let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
         vc.contentImageURLs = [ "<Your First URL>", "<Your Second URL>", "<Your Third URL>"]
 
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
     
 }
 ```
 
 
-### Providing the images as URLs and embedding the carousel
+### Providing the images as URLs and embedding the `SwiftImageCarousel` in a UIContainerViewController
 
 ```swift
-    ///  The UIView declared in Main.Storyboard.
+    ///  A UIView declared in Main.Storyboard.
     @IBOutlet weak var containerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
-        let vc = s.instantiateInitialViewController() as! InitialPageViewController
-
+        let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+        let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
         vc.contentImageURLs = ["<Your First URL>", "<Your Second URL>", "<Your Third URL>"]
 
-        // Lets add it to container view.
+        // Adding it to the container view
         vc.willMove(toParentViewController: self)
         containerView.addSubview(vc.view)
         vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
@@ -134,58 +128,52 @@ class RandomViewController: UIViewController {
     }
 ```
 
-### Setting up the <i>contentImageURLs</i> STRING ARRAY with image URLs provided as STRINGS
+### Setting up the <i>contentImageURLs</i> Array with image URLs provided as Strings
 
 ```swift
-       let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
-       let vc = s.instantiateInitialViewController() as! InitialPageViewController
+       let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+       let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
        
        /// Default URLs are not provided. They need to be set up.
        vc.contentImageURLs = [ "<Your First URL>", "<Your Second URL>", "<Your Third URL>"]
 ```
 
-### Disabling the timer with the <i>isTimerOn</i> BOOLEAN variable
+### Disabling the timer with the <i>isTimerOn</i> Bool variable
 
 ```swift
-       let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
-       let vc = s.instantiateInitialViewController() as! InitialPageViewController
+       let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+       let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
        
        /// Timer ON/OFF boolean variable. Timer for automatic swiping is set true(or ON) by default. If it needs to be off, it needs to be set to false.
        vc.isTimerOn = false
 ```
 
-### Changing the timer's automatic swipe interval with the <i>swipeTimeIntervalSeconds</i> DOUBLE variable
+### Changing the timer's automatic swipe interval with the <i>swipeTimeIntervalSeconds</i> Double variable
 
 ```swift
-       let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
-       let vc = s.instantiateInitialViewController() as! InitialPageViewController
+       let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+       let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
        
        /// The interval on which the carousel swipes automatically when timer is on. Default is 3 seconds.
        vc.swipeTimeIntervalSeconds = 1.5
 ```
 
-### Setting up the InitialPageViewControllerDelegate
+### Setting up the SwiftImageCarouselVCDelegate
 
-After you create InitialPageViewController programatically, setup the pageVCDelegate to self:
-
-```swift
-       let s = UIStoryboard (name: "Main", bundle: Bundle(for: InitialPageViewController.self))
-       let vc = s.instantiateInitialViewController() as! InitialPageViewController
-       vc.pageVCDelegate = self
-```
-
-And do not forget to add InitialPageViewControllerDelegate as an extention to your custom-class View Controller:
+After you create `SwiftImageCarouselVC` programatically, setup the swiftImageCarouselVCDelegate to self:
 
 ```swift
-extension RandomViewController: InitialPageViewControllerDelegate {} 
+       let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+       let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
+       vc.swiftImageCarouselVCDelegate = self
 ```
  
-### Delegate Functions Implementation after setting up the InitialPageViewControllerDelegate
+### Delegate Functions Implementation after setting up the `SwiftImageCarouselVCDelegate`
 
-<b>Setting up the appearance of the page controls (the ones with the colored dots)</b>
+<b>Setting up the appearance of the page controls (colored dots)</b>
 
 ```swift
-extension RandomViewController: InitialPageViewControllerDelegate {
+extension ViewController: SwiftImageCarouselVCDelegate {
     func setupAppearance(forFirst firstPageControl: UIPageControl, forSecond secondPageControl: UIPageControl) {
         firstPageControl.backgroundColor = .red
         firstPageControl.currentPageIndicatorTintColor = .yellow
@@ -193,20 +181,20 @@ extension RandomViewController: InitialPageViewControllerDelegate {
 }
 ```
 
-<b>Getting the timer and its properties in case they are needed for whatever reasons</b>
+<b>Getting the timer and its properties</b>
 
 ```swift
-extension RandomViewController: InitialPageViewControllerDelegate {
+extension ViewController: SwiftImageCarouselVCDelegate {
     func didStartTimer(_ timer: Timer) {
         print (timer.timeInterval)
     }
 }
 ```
 
-<b>Getting the coming pageItemController and its properties when the timer is on</b>
+<b>Getting the next pageItemController when the timer is on</b>
 
 ```swift
-extension RandomViewController: InitialPageViewControllerDelegate {
+extension ViewController: SwiftImageCarouselVCDelegate {
      func didGetNextITemController(next pageItemController: InitialPageItemController) {
         pageItemController.view.backgroundColor = .green
     }
@@ -216,7 +204,7 @@ extension RandomViewController: InitialPageViewControllerDelegate {
 <b>Getting the pageItemController when unwinding from ScrollablePageItemController.</b>
 
 ```swift
-extension RandomViewController: InitialPageViewControllerDelegate {
+extension ViewController: SwiftImageCarouselVCDelegate {
      func didUnwindToPageViewController(unwindedTo pageItemController: InitialPageItemController) {
         pageItemController.view.backgroundColor = .green
     }

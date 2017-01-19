@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Initial Page Item Controller-->
+        <!--Swift Image Carousel ItemVC-->
         <scene sceneID="i2f-Xn-Jyi">
             <objects>
-                <viewController storyboardIdentifier="InitialPageItemController" id="RfP-Jq-vR5" customClass="InitialPageItemController" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SwiftImageCarouselItemVC" id="RfP-Jq-vR5" customClass="SwiftImageCarouselItemVC" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z4X-bv-dbc"/>
                         <viewControllerLayoutGuide type="bottom" id="c4E-OT-4sJ"/>
@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iG6-GC-4H2">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="iG6-GC-4H2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -42,7 +42,7 @@
                     <connections>
                         <outlet property="contentImageView" destination="iG6-GC-4H2" id="ddq-lv-PFi"/>
                         <outlet property="view" destination="Dxa-Cv-Rlz" id="6tG-mC-ibm"/>
-                        <segue destination="h2c-yw-7tI" kind="modal" identifier="showScrollable" modalTransitionStyle="crossDissolve" id="nnd-Rd-uU9"/>
+                        <segue destination="h2c-yw-7tI" kind="modal" identifier="showGalleryVC" id="59m-Ao-9MX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7IJ-QC-FfU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="190.5" y="1100.5"/>
         </scene>
-        <!--Scrollable Page View Controller-->
+        <!--GalleryVC-->
         <scene sceneID="pq9-i2-uwq">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h2c-yw-7tI" customClass="ScrollablePageViewController" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h2c-yw-7tI" customClass="GalleryVC" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1n6-Js-uzE"/>
                     <nil key="simulatedStatusBarMetrics"/>
                 </pageViewController>
@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="669" y="1101"/>
         </scene>
-        <!--Scrollable Page Item Controller-->
+        <!--Gallery ItemVC-->
         <scene sceneID="FO6-Mh-fAG">
             <objects>
-                <viewController storyboardIdentifier="ScrollablePageItemController" id="y6f-61-PVO" customClass="ScrollablePageItemController" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GalleryItemVC" id="y6f-61-PVO" customClass="GalleryItemVC" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4pb-9m-ukf"/>
                         <viewControllerLayoutGuide type="bottom" id="uh7-qW-4MK"/>
@@ -80,7 +80,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="xb8-AI-TVz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eY4-TJ-0hM">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="eY4-TJ-0hM">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     </imageView>
                                 </subviews>
@@ -111,7 +111,7 @@
                     <connections>
                         <outlet property="contentImageView" destination="eY4-TJ-0hM" id="9yY-MF-LFh"/>
                         <outlet property="scrollView" destination="xb8-AI-TVz" id="mIO-zD-5k4"/>
-                        <segue destination="WKU-un-ULr" kind="unwind" identifier="unwindToPageViewController" unwindAction="unwindToPageViewControllerWithSegue:" id="oOp-20-9Im"/>
+                        <segue destination="WKU-un-ULr" kind="unwind" identifier="unwindToSwiftImageCarouselVC" unwindAction="unwindToSwiftImageCarouselVCWithSegue:" id="oOp-20-9Im"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="AR7-m7-l7B">
@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="1111.5" y="1100.5"/>
         </scene>
-        <!--Initial Page View Controller-->
+        <!--Swift Image CarouselVC-->
         <scene sceneID="z2o-Jv-T7h">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="AkL-qy-2tW" customClass="InitialPageViewController" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="AkL-qy-2tW" customClass="SwiftImageCarouselVC" customModule="SwiftImageCarousel" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Lv3-Hr-UaO"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATb-KL-Eai" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,6 +135,9 @@
             <point key="canvasLocation" x="191" y="372"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="no-image" width="165" height="85"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
