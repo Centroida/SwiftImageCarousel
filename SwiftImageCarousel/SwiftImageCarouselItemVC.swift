@@ -18,17 +18,16 @@ public class SwiftImageCarouselItemVC: UIViewController {
     public var itemIndex: Int = 0
 
     /// Passing on the delegate, so that it will get notified when an image is tapped
-    public var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
+    var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
 
     /// Enables/disables the showing of the modal gallery
-    public var showModalGalleryOnTap = true
+    var showModalGalleryOnTap = true
 
     /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit
-    public var contentMode: UIViewContentMode = .scaleAspectFit
+    var contentMode: UIViewContentMode = .scaleAspectFit
 
     /// The array with the image URLs, passed to the GalleryVC.
     public var contentImageURLs: [String]!
-    /// The precise image URL that needs to be displayed in the GalleryItemVC currently in view.
 
     // MARK: - Functions
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
