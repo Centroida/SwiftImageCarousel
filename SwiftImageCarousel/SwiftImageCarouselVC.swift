@@ -185,21 +185,8 @@ public class SwiftImageCarouselVC: UIPageViewController {
         super.viewDidDisappear(animated)
         timer.invalidate()
     }
+    
     override public var prefersStatusBarHidden : Bool { return true }
-
-    // A method we use fixing the bounds of the image so that page control with the dots does not cover that particular image when a user zooms in.
-    // We use it in GalleryItemVC but we also will need to implement it here in order to avoid image position shift when segueing back and forth between Scrollable Page View Controller and GalleryItemVC.
-    // Works buggy when embeding. Works ok with newly instantiated storyboard.
-    //    override public func viewDidLayoutSubviews() {
-    //        super.viewDidLayoutSubviews()
-    //        for view in self.view.subviews {
-    //            if view is UIScrollView {
-    //                view.frame = UIScreen.main.bounds
-    //            } else if view is UIPageControl {
-    //                view.backgroundColor = UIColor.clear
-    //            }
-    //        }
-    //    }
 }
 
 // MARK: - UIPageViewControllerDataSource
