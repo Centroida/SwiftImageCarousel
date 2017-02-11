@@ -64,41 +64,6 @@ extension UIImage {
 
 // MARK: - String
 extension String {
-    // String as valid image url
-    func isValidImageURL() -> Bool {
-        do {
-            let regex = try NSRegularExpression(pattern: "([a-z\\?\\=\\%\\+\\&\\-_0-9\\/\\:\\.]*\\.(jpg|jpeg|png|gif))$", options: .caseInsensitive)
-            return !regex.matches(in: self, range: NSRange(location: 0, length: (self as NSString).length)).isEmpty
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-        }
-        return false
-    }
-    // String as valid url
-    func isValidURL() -> Bool {
-        do {
-            let regex = try NSRegularExpression(pattern: "(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+", options: .caseInsensitive)
-            return !regex.matches(in: self, range: NSRange(location: 0, length: (self as NSString).length)).isEmpty
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-        }
-        return false
-    }
-
-    func firstMatch(for regex: String, in text: String) -> String? {
-        do {
-            let regex = try NSRegularExpression(pattern: regex)
-            let nsString = text as NSString
-            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
-            if let firstMatch = results.first {
-                return nsString.substring(with: firstMatch.range)
-            }
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-        }
-        return nil
-    }
-
     func urlEncode() -> String {
         return addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     }
