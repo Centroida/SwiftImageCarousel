@@ -111,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				8DF7DEF21E50A956008DEB58 /* SwiftImageCarousel.xcodeproj */,
-				8DF7DEC31E50A8CD008DEB58 /* SwiftImageCarouselExampleProject */,
+				8DF7DEC31E50A8CD008DEB58 /* Example Project */,
 				8DF7DEC21E50A8CD008DEB58 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,12 +126,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8DF7DEC31E50A8CD008DEB58 /* SwiftImageCarouselExampleProject */ = {
+		8DF7DEC31E50A8CD008DEB58 /* Example Project */ = {
 			isa = PBXGroup;
 			children = (
 				8DF7DEC61E50A8CD008DEB58 /* ExampleViewController.swift */,
 				8DF7DF001E50ABE1008DEB58 /* SupportingFiles */,
 			);
+			name = "Example Project";
 			path = SwiftImageCarouselExampleProject;
 			sourceTree = "<group>";
 		};
