@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DF7DEC51E50A8CD008DEB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF7DEC41E50A8CD008DEB58 /* AppDelegate.swift */; };
+		8DF7DEC71E50A8CD008DEB58 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF7DEC61E50A8CD008DEB58 /* ExampleViewController.swift */; };
+		8DF7DECA1E50A8CD008DEB58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DF7DEC81E50A8CD008DEB58 /* Main.storyboard */; };
+		8DF7DECC1E50A8CD008DEB58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DF7DECB1E50A8CD008DEB58 /* Assets.xcassets */; };
+		8DF7DECF1E50A8CD008DEB58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DF7DECD1E50A8CD008DEB58 /* LaunchScreen.storyboard */; };
+		8DF7DEFB1E50A961008DEB58 /* SwiftImageCarousel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF7DEF81E50A956008DEB58 /* SwiftImageCarousel.framework */; };
+		8DF7DEFC1E50A961008DEB58 /* SwiftImageCarousel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF7DEF81E50A956008DEB58 /* SwiftImageCarousel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8DF7DED61E50A8CD008DEB58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DF7DEB91E50A8CD008DEB58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DF7DEC01E50A8CD008DEB58;
+			remoteInfo = SwiftImageCarouselExampleProject;
+		};
+		8DF7DEE11E50A8CD008DEB58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DF7DEB91E50A8CD008DEB58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DF7DEC01E50A8CD008DEB58;
+			remoteInfo = SwiftImageCarouselExampleProject;
+		};
+		8DF7DEF71E50A956008DEB58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DF7DEF21E50A956008DEB58 /* SwiftImageCarousel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 267A9B421E27DB7F00FBA1A6;
+			remoteInfo = SwiftImageCarousel;
+		};
+		8DF7DEF91E50A956008DEB58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DF7DEF21E50A956008DEB58 /* SwiftImageCarousel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 267A9B4B1E27DB8000FBA1A6;
+			remoteInfo = SwiftImageCarouselTests;
+		};
+		8DF7DEFD1E50A961008DEB58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DF7DEF21E50A956008DEB58 /* SwiftImageCarousel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 267A9B411E27DB7F00FBA1A6;
+			remoteInfo = SwiftImageCarousel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DF7DEFF1E50A961008DEB58 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8DF7DEFC1E50A961008DEB58 /* SwiftImageCarousel.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8DF7DEC11E50A8CD008DEB58 /* SwiftImageCarouselExampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftImageCarouselExampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF7DEC41E50A8CD008DEB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8DF7DEC61E50A8CD008DEB58 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		8DF7DEC91E50A8CD008DEB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8DF7DECB1E50A8CD008DEB58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DF7DECE1E50A8CD008DEB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8DF7DED01E50A8CD008DEB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DF7DED51E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftImageCarouselExampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF7DEE01E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftImageCarouselExampleProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF7DEF21E50A956008DEB58 /* SwiftImageCarousel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftImageCarousel.xcodeproj; path = ../SwiftImageCarousel.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DF7DEBE1E50A8CD008DEB58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DF7DEFB1E50A961008DEB58 /* SwiftImageCarousel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DF7DED21E50A8CD008DEB58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DF7DEDD1E50A8CD008DEB58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8DF7DEB81E50A8CD008DEB58 = {
+			isa = PBXGroup;
+			children = (
+				8DF7DEF21E50A956008DEB58 /* SwiftImageCarousel.xcodeproj */,
+				8DF7DEC31E50A8CD008DEB58 /* SwiftImageCarouselExampleProject */,
+				8DF7DEC21E50A8CD008DEB58 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8DF7DEC21E50A8CD008DEB58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DF7DEC11E50A8CD008DEB58 /* SwiftImageCarouselExampleProject.app */,
+				8DF7DED51E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectTests.xctest */,
+				8DF7DEE01E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DF7DEC31E50A8CD008DEB58 /* SwiftImageCarouselExampleProject */ = {
+			isa = PBXGroup;
+			children = (
+				8DF7DEC61E50A8CD008DEB58 /* ExampleViewController.swift */,
+				8DF7DF001E50ABE1008DEB58 /* SupportingFiles */,
+			);
+			path = SwiftImageCarouselExampleProject;
+			sourceTree = "<group>";
+		};
+		8DF7DEF31E50A956008DEB58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DF7DEF81E50A956008DEB58 /* SwiftImageCarousel.framework */,
+				8DF7DEFA1E50A956008DEB58 /* SwiftImageCarouselTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DF7DF001E50ABE1008DEB58 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8DF7DEC41E50A8CD008DEB58 /* AppDelegate.swift */,
+				8DF7DEC81E50A8CD008DEB58 /* Main.storyboard */,
+				8DF7DECB1E50A8CD008DEB58 /* Assets.xcassets */,
+				8DF7DECD1E50A8CD008DEB58 /* LaunchScreen.storyboard */,
+				8DF7DED01E50A8CD008DEB58 /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DF7DEC01E50A8CD008DEB58 /* SwiftImageCarouselExampleProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DF7DEE91E50A8CD008DEB58 /* Build configuration list for PBXNativeTarget "SwiftImageCarouselExampleProject" */;
+			buildPhases = (
+				8DF7DEBD1E50A8CD008DEB58 /* Sources */,
+				8DF7DEBE1E50A8CD008DEB58 /* Frameworks */,
+				8DF7DEBF1E50A8CD008DEB58 /* Resources */,
+				8DF7DEFF1E50A961008DEB58 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DF7DEFE1E50A961008DEB58 /* PBXTargetDependency */,
+			);
+			name = SwiftImageCarouselExampleProject;
+			productName = SwiftImageCarouselExampleProject;
+			productReference = 8DF7DEC11E50A8CD008DEB58 /* SwiftImageCarouselExampleProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8DF7DED41E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DF7DEEC1E50A8CD008DEB58 /* Build configuration list for PBXNativeTarget "SwiftImageCarouselExampleProjectTests" */;
+			buildPhases = (
+				8DF7DED11E50A8CD008DEB58 /* Sources */,
+				8DF7DED21E50A8CD008DEB58 /* Frameworks */,
+				8DF7DED31E50A8CD008DEB58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DF7DED71E50A8CD008DEB58 /* PBXTargetDependency */,
+			);
+			name = SwiftImageCarouselExampleProjectTests;
+			productName = SwiftImageCarouselExampleProjectTests;
+			productReference = 8DF7DED51E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8DF7DEDF1E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DF7DEEF1E50A8CD008DEB58 /* Build configuration list for PBXNativeTarget "SwiftImageCarouselExampleProjectUITests" */;
+			buildPhases = (
+				8DF7DEDC1E50A8CD008DEB58 /* Sources */,
+				8DF7DEDD1E50A8CD008DEB58 /* Frameworks */,
+				8DF7DEDE1E50A8CD008DEB58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DF7DEE21E50A8CD008DEB58 /* PBXTargetDependency */,
+			);
+			name = SwiftImageCarouselExampleProjectUITests;
+			productName = SwiftImageCarouselExampleProjectUITests;
+			productReference = 8DF7DEE01E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DF7DEB91E50A8CD008DEB58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Centroida;
+				TargetAttributes = {
+					8DF7DEC01E50A8CD008DEB58 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = E5C2GPDY2X;
+						ProvisioningStyle = Automatic;
+					};
+					8DF7DED41E50A8CD008DEB58 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = E5C2GPDY2X;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8DF7DEC01E50A8CD008DEB58;
+					};
+					8DF7DEDF1E50A8CD008DEB58 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = E5C2GPDY2X;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8DF7DEC01E50A8CD008DEB58;
+					};
+				};
+			};
+			buildConfigurationList = 8DF7DEBC1E50A8CD008DEB58 /* Build configuration list for PBXProject "SwiftImageCarouselExampleProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8DF7DEB81E50A8CD008DEB58;
+			productRefGroup = 8DF7DEC21E50A8CD008DEB58 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8DF7DEF31E50A956008DEB58 /* Products */;
+					ProjectRef = 8DF7DEF21E50A956008DEB58 /* SwiftImageCarousel.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8DF7DEC01E50A8CD008DEB58 /* SwiftImageCarouselExampleProject */,
+				8DF7DED41E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectTests */,
+				8DF7DEDF1E50A8CD008DEB58 /* SwiftImageCarouselExampleProjectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8DF7DEF81E50A956008DEB58 /* SwiftImageCarousel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftImageCarousel.framework;
+			remoteRef = 8DF7DEF71E50A956008DEB58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8DF7DEFA1E50A956008DEB58 /* SwiftImageCarouselTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftImageCarouselTests.xctest;
+			remoteRef = 8DF7DEF91E50A956008DEB58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DF7DEBF1E50A8CD008DEB58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DF7DECF1E50A8CD008DEB58 /* LaunchScreen.storyboard in Resources */,
+				8DF7DECC1E50A8CD008DEB58 /* Assets.xcassets in Resources */,
+				8DF7DECA1E50A8CD008DEB58 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DF7DED31E50A8CD008DEB58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DF7DEDE1E50A8CD008DEB58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DF7DEBD1E50A8CD008DEB58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DF7DEC71E50A8CD008DEB58 /* ExampleViewController.swift in Sources */,
+				8DF7DEC51E50A8CD008DEB58 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DF7DED11E50A8CD008DEB58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DF7DEDC1E50A8CD008DEB58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8DF7DED71E50A8CD008DEB58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DF7DEC01E50A8CD008DEB58 /* SwiftImageCarouselExampleProject */;
+			targetProxy = 8DF7DED61E50A8CD008DEB58 /* PBXContainerItemProxy */;
+		};
+		8DF7DEE21E50A8CD008DEB58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DF7DEC01E50A8CD008DEB58 /* SwiftImageCarouselExampleProject */;
+			targetProxy = 8DF7DEE11E50A8CD008DEB58 /* PBXContainerItemProxy */;
+		};
+		8DF7DEFE1E50A961008DEB58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftImageCarousel;
+			targetProxy = 8DF7DEFD1E50A961008DEB58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8DF7DEC81E50A8CD008DEB58 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DF7DEC91E50A8CD008DEB58 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8DF7DECD1E50A8CD008DEB58 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DF7DECE1E50A8CD008DEB58 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8DF7DEE71E50A8CD008DEB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8DF7DEE81E50A8CD008DEB58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DF7DEEA1E50A8CD008DEB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E5C2GPDY2X;
+				INFOPLIST_FILE = SwiftImageCarouselExampleProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.centroida.carousel.SwiftImageCarouselExampleProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8DF7DEEB1E50A8CD008DEB58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E5C2GPDY2X;
+				INFOPLIST_FILE = SwiftImageCarouselExampleProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.centroida.carousel.SwiftImageCarouselExampleProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		8DF7DEED1E50A8CD008DEB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = E5C2GPDY2X;
+				INFOPLIST_FILE = SwiftImageCarouselExampleProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.centroida.carousel.SwiftImageCarouselExampleProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftImageCarouselExampleProject.app/SwiftImageCarouselExampleProject";
+			};
+			name = Debug;
+		};
+		8DF7DEEE1E50A8CD008DEB58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = E5C2GPDY2X;
+				INFOPLIST_FILE = SwiftImageCarouselExampleProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.centroida.carousel.SwiftImageCarouselExampleProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftImageCarouselExampleProject.app/SwiftImageCarouselExampleProject";
+			};
+			name = Release;
+		};
+		8DF7DEF01E50A8CD008DEB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = E5C2GPDY2X;
+				INFOPLIST_FILE = SwiftImageCarouselExampleProjectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.centroida.carousel.SwiftImageCarouselExampleProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SwiftImageCarouselExampleProject;
+			};
+			name = Debug;
+		};
+		8DF7DEF11E50A8CD008DEB58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = E5C2GPDY2X;
+				INFOPLIST_FILE = SwiftImageCarouselExampleProjectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.centroida.carousel.SwiftImageCarouselExampleProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SwiftImageCarouselExampleProject;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8DF7DEBC1E50A8CD008DEB58 /* Build configuration list for PBXProject "SwiftImageCarouselExampleProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DF7DEE71E50A8CD008DEB58 /* Debug */,
+				8DF7DEE81E50A8CD008DEB58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DF7DEE91E50A8CD008DEB58 /* Build configuration list for PBXNativeTarget "SwiftImageCarouselExampleProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DF7DEEA1E50A8CD008DEB58 /* Debug */,
+				8DF7DEEB1E50A8CD008DEB58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8DF7DEEC1E50A8CD008DEB58 /* Build configuration list for PBXNativeTarget "SwiftImageCarouselExampleProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DF7DEED1E50A8CD008DEB58 /* Debug */,
+				8DF7DEEE1E50A8CD008DEB58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8DF7DEEF1E50A8CD008DEB58 /* Build configuration list for PBXNativeTarget "SwiftImageCarouselExampleProjectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DF7DEF01E50A8CD008DEB58 /* Debug */,
+				8DF7DEF11E50A8CD008DEB58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DF7DEB91E50A8CD008DEB58 /* Project object */;
+}

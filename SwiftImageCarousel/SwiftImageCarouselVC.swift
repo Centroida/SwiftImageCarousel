@@ -41,8 +41,28 @@ import UIKit
 
 ///  SwiftImageCarouselVC is the controller base class and initilizes the first view the user sees when a developer implements this carousel. It implements methods used for instantiating the proper page view, setting up the page controller appearance and setting up the timer used for automatic swiping of the page views.
 public class SwiftImageCarouselVC: UIPageViewController {
+    
+    public class func instantiate(containerView: UIView, contentImageURLs: [String], parentVC: UIViewController) {
+        
+        let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+        let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
+        vc.contentImageURLs = contentImageURLs
+        
+        // Adding it to the container view
+        vc.willMove(toParentViewController: parentVC)
+        containerView.addSubview(vc.view)
+        vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
+        parentVC.addChildViewController(vc)
+        vc.didMove(toParentViewController: parentVC)
+        
+    }
+    
     /// The model array of image urls used in the carousel
-    public var contentImageURLs: [String] = []
+    public var contentImageURLs: [String] = [] {
+        didSet {
+            getNextItemController()
+        }
+    }
 
     // MARK: - Delegate
     weak public var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
