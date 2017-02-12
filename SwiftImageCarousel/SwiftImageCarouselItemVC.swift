@@ -12,8 +12,11 @@ public class SwiftImageCarouselItemVC: UIViewController {
 
     // MARK: -  Outlets
     @IBOutlet var contentImageView: UIImageView!
-
+    
     // MARK: - Variables
+    /// The image shown when an image to be downloaded does not do that successfully
+    var noImage: UIImage? = nil
+
     ///  Keeps track of the SwiftImageCarouselItemVC currently in view. Passed to GalleryVC so it knows what GalleryItemVC to display.
     public var itemIndex: Int = 0
 
@@ -39,16 +42,18 @@ public class SwiftImageCarouselItemVC: UIViewController {
 
     fileprivate func setupUI(){
         /// The UIImageView extension function that is used to download an image and save it to cache if possible.
-        contentImageView.image = UIImage.bundledImage(named: "no-image")
+        contentImageView.image = noImage
+        
         contentImageView.contentMode = contentMode
         _ = contentImageView.downloadImageAsync(contentsOf: contentImageURLs[itemIndex], saveToCache: imageCache)
     }
 
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showGalleryVC" {
-            if let scrollablePageVC = segue.destination as? GalleryVC {
-                scrollablePageVC.pageIndicatorIndex = itemIndex
-                scrollablePageVC.contentImageURLs = contentImageURLs
+            if let scrollableGalleryVC = segue.destination as? GalleryVC {
+                scrollableGalleryVC.pageIndicatorIndex = itemIndex
+                scrollableGalleryVC.contentImageURLs = contentImageURLs
+                scrollableGalleryVC.noImage = noImage
             }
         }
     }

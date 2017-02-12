@@ -575,6 +575,7 @@
 				8DF7DEEB1E50A8CD008DEB58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8DF7DEEC1E50A8CD008DEB58 /* Build configuration list for PBXNativeTarget "SwiftImageCarouselExampleProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -583,6 +584,7 @@
 				8DF7DEEE1E50A8CD008DEB58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8DF7DEEF1E50A8CD008DEB58 /* Build configuration list for PBXNativeTarget "SwiftImageCarouselExampleProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -591,6 +593,7 @@
 				8DF7DEF11E50A8CD008DEB58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

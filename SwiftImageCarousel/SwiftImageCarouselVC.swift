@@ -53,6 +53,9 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
     /// Enables/disables the showing of the modal gallery.
     public var showModalGalleryOnTap = true
+    
+    /// The image shown when an image to be downloaded does not do that successfully
+    public var noImage: UIImage? = nil
 
     /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit.
     public var contentMode: UIViewContentMode = .scaleAspectFit
@@ -104,9 +107,10 @@ public class SwiftImageCarouselVC: UIPageViewController {
     ///   - swipeTimeIntervalSeconds: Interval on which the view changes when the timer is on. Default value is 3 seconds.
     ///   - contentMode: enables setting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit.
     ///   - showModalGalleryOnTap: enables/disables the showing of the modal gallery.
+    ///   - noImage: image shown when an image to be downloaded does not do that successfully
     ///   - swiftImageCarouselVCDelegate: the SwiftImageCarousel delegate to access the delegate functions.
     /// - Returns: the SwiftImageCarouselVC created
-    public class func instantiate(containerView: UIView, contentImageURLs: [String], parentVC: UIViewController, isTimerOn: Bool = true, swipeTimeIntervalSeconds: Double = 3.0, contentMode: UIViewContentMode = .scaleAspectFit, showModalGalleryOnTap: Bool = true, swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate? = nil) -> SwiftImageCarouselVC {
+    public class func instantiate(containerView: UIView, contentImageURLs: [String], parentVC: UIViewController, isTimerOn: Bool = true, swipeTimeIntervalSeconds: Double = 3.0, contentMode: UIViewContentMode = .scaleAspectFit, showModalGalleryOnTap: Bool = true, noImage: UIImage? = nil, swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate? = nil) -> SwiftImageCarouselVC {
         
         let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
         let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
@@ -116,6 +120,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
         vc.swipeTimeIntervalSeconds = swipeTimeIntervalSeconds
         vc.contentMode = contentMode
         vc.showModalGalleryOnTap = showModalGalleryOnTap
+        vc.noImage = noImage
         
         vc.willMove(toParentViewController: parentVC)
         containerView.addSubview(vc.view)
@@ -165,6 +170,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
             pageItemController.swiftImageCarouselVCDelegate = swiftImageCarouselVCDelegate
             pageItemController.showModalGalleryOnTap = showModalGalleryOnTap
             pageItemController.contentMode = contentMode
+            pageItemController.noImage = noImage
             return pageItemController
         }
 
