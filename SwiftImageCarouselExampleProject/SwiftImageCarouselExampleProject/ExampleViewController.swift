@@ -16,10 +16,20 @@ class ExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        SwiftImageCarouselVC.instantiate(containerView: containerView, contentImageURLs: imageURLs, parentVC: self)
-       
+        _  = SwiftImageCarouselVC.instantiate(containerView: containerView, contentImageURLs: imageURLs, parentVC: self)
     }
     
+}
+
+extension ExampleViewController: SwiftImageCarouselVCDelegate {
+    func setupAppearance(forFirst firstPageControl: UIPageControl, forSecond secondPageControl: UIPageControl) {
+            
+            firstPageControl.backgroundColor = .red
+            firstPageControl.currentPageIndicatorTintColor = .yellow
+        
+        secondPageControl.backgroundColor = .yellow
+        secondPageControl.currentPageIndicatorTintColor = .red
+        
+    }
 }
 

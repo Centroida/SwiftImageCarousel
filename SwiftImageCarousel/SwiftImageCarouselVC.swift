@@ -38,26 +38,10 @@ import UIKit
     @objc optional func didTapSwiftImageCarouselItemVC(SwiftImageCarouselItemController: SwiftImageCarouselItemVC)
 }
 
-
 ///  SwiftImageCarouselVC is the controller base class and initilizes the first view the user sees when a developer implements this carousel. It implements methods used for instantiating the proper page view, setting up the page controller appearance and setting up the timer used for automatic swiping of the page views.
 public class SwiftImageCarouselVC: UIPageViewController {
     
-    public class func instantiate(containerView: UIView, contentImageURLs: [String], parentVC: UIViewController) {
-        
-        let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
-        let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
-        vc.contentImageURLs = contentImageURLs
-        
-        // Adding it to the container view
-        vc.willMove(toParentViewController: parentVC)
-        containerView.addSubview(vc.view)
-        vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
-        parentVC.addChildViewController(vc)
-        vc.didMove(toParentViewController: parentVC)
-        
-    }
-    
-    /// The model array of image urls used in the carousel
+    /// The model array of image urls used in the carousel.
     public var contentImageURLs: [String] = [] {
         didSet {
             getNextItemController()
@@ -67,14 +51,14 @@ public class SwiftImageCarouselVC: UIPageViewController {
     // MARK: - Delegate
     weak public var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
 
-    /// Enables/disables the showing of the modal gallery
+    /// Enables/disables the showing of the modal gallery.
     public var showModalGalleryOnTap = true
 
-    /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit
+    /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit.
     public var contentMode: UIViewContentMode = .scaleAspectFit
 
     // MARK: - Timer properties
-    /// The timer that is used to move the next page item
+    /// The timer that is used to move the next page item.
     var timer = Timer()
 
     /// Enables/disables the automatic swiping of the timer. Default value is true.
@@ -108,6 +92,41 @@ public class SwiftImageCarouselVC: UIPageViewController {
     }
 
     // MARK: - Functions
+    
+    
+    /// A class function to that abstracts out the creation of the carousel
+    ///
+    /// - Parameters:
+    ///   - containerView: container for the embedded carousel.
+    ///   - contentImageURLs: model array of image urls used in the carousel.
+    ///   - parentVC: view controller that contains the carousel (usually set to "self").
+    ///   - isTimerOn: enables/disables the automatic swiping of the timer. Default value is true.
+    ///   - swipeTimeIntervalSeconds: Interval on which the view changes when the timer is on. Default value is 3 seconds.
+    ///   - contentMode: enables setting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit.
+    ///   - showModalGalleryOnTap: enables/disables the showing of the modal gallery.
+    ///   - swiftImageCarouselVCDelegate: the SwiftImageCarousel delegate to access the delegate functions.
+    /// - Returns: the SwiftImageCarouselVC created
+    public class func instantiate(containerView: UIView, contentImageURLs: [String], parentVC: UIViewController, isTimerOn: Bool = true, swipeTimeIntervalSeconds: Double = 3.0, contentMode: UIViewContentMode = .scaleAspectFit, showModalGalleryOnTap: Bool = true, swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate? = nil) -> SwiftImageCarouselVC {
+        
+        let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+        let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
+        vc.contentImageURLs = contentImageURLs
+        vc.swiftImageCarouselVCDelegate = swiftImageCarouselVCDelegate
+        vc.isTimerOn = isTimerOn
+        vc.swipeTimeIntervalSeconds = swipeTimeIntervalSeconds
+        vc.contentMode = contentMode
+        vc.showModalGalleryOnTap = showModalGalleryOnTap
+        
+        vc.willMove(toParentViewController: parentVC)
+        containerView.addSubview(vc.view)
+        vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
+        parentVC.addChildViewController(vc)
+        vc.didMove(toParentViewController: parentVC)
+        
+        return vc
+    }
+
+    
     /// Loads a starting view controller from the model array with an index. Called on viewDidLoad()
     ///
     /// - Parameter index: The index identifying which view controller from the model will be loaded
