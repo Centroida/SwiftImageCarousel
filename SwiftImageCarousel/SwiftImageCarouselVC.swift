@@ -35,7 +35,7 @@ import UIKit
     /// Fires when a pageItemController is tapped.
     ///
     /// - Parameter SwiftImageCarouselItemController: The SwiftImageCarouselItemVC taht is tapped
-    @objc optional func didTapSwiftImageCarouselItemVC(SwiftImageCarouselItemController: SwiftImageCarouselItemVC)
+    @objc optional func didTapSwiftImageCarouselItemVC(swiftImageCarouselItemController: SwiftImageCarouselItemVC)
 }
 
 ///  SwiftImageCarouselVC is the controller base class and initilizes the first view the user sees when a developer implements this carousel. It implements methods used for instantiating the proper page view, setting up the page controller appearance and setting up the timer used for automatic swiping of the page views.

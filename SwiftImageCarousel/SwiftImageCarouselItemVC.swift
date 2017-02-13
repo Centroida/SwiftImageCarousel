@@ -34,7 +34,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
 
     // MARK: - Functions
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
-        swiftImageCarouselVCDelegate?.didTapSwiftImageCarouselItemVC?(SwiftImageCarouselItemController: self)
+        swiftImageCarouselVCDelegate?.didTapSwiftImageCarouselItemVC?(swiftImageCarouselItemController: self)
         if showModalGalleryOnTap {
             self.performSegue(withIdentifier: "showGalleryVC", sender: nil)
         }
