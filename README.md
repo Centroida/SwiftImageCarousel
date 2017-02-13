@@ -175,6 +175,21 @@ After you create `SwiftImageCarouselVC` programatically, setup the swiftImageCar
  
 ### Delegate Functions Implementation after setting up the `SwiftImageCarouselVCDelegate`
 
+<b>Setting <i>showModalGalleryOnTap</i> to false and instead performing a different segue than the default one when clicking on one of the images in the carousel.</b>
+
+```swift
+       /// Enables/disables the showing of the modal gallery
+       vc.showModalGalleryOnTap = false 
+```
+
+```swift
+extension ViewController: SwiftImageCarouselVCDelegate {
+     func didTapSwiftImageCarouselItemVC(swiftImageCarouselItemController: SwiftImageCarouselItemVC) {
+        // The user selected this swiftImageCarouselItemController
+    }
+}
+``` 
+
 <b>Setting up the appearance of the page controls (colored dots)</b>
 
 ```swift
@@ -215,24 +230,6 @@ extension ViewController: SwiftImageCarouselVCDelegate {
     }
 }
 ```
-
-<b>Setting <i>showModalGalleryOnTap</i> to false and instead performing a different segue than the default one when clicking on one of the images in the carousel.</b>
-
-```swift
-       /// Enables/disables the showing of the modal gallery
-       vc.showModalGalleryOnTap = false 
-```
-
-```swift
-extension ViewController: SwiftImageCarouselVCDelegate {
-     func didTapSwiftImageCarouselItemVC(SwiftImageCarouselItemController: SwiftImageCarouselItemVC) {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "<SegueName>", sender: nil)
-        }
-    }
-
-}
-``` 
   
 ## Issues
   
