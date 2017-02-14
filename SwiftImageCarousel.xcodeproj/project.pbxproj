@@ -18,6 +18,7 @@
 		267A9B511E27DB8000FBA1A6 /* SwiftImageCarouselVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267A9B501E27DB8000FBA1A6 /* SwiftImageCarouselVCTests.swift */; };
 		267A9B531E27DB8000FBA1A6 /* SwiftImageCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 267A9B451E27DB7F00FBA1A6 /* SwiftImageCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2689F42F1E30D205006F1E67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2689F42E1E30D205006F1E67 /* Assets.xcassets */; };
+		962DF54A1E4F7C0B00E20AD0 /* SwiftImageCarouselGalleryVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962DF5491E4F7C0B00E20AD0 /* SwiftImageCarouselGalleryVCTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		267A9B501E27DB8000FBA1A6 /* SwiftImageCarouselVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftImageCarouselVCTests.swift; sourceTree = "<group>"; };
 		267A9B521E27DB8000FBA1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2689F42E1E30D205006F1E67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		962DF5491E4F7C0B00E20AD0 /* SwiftImageCarouselGalleryVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftImageCarouselGalleryVCTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				267A9B501E27DB8000FBA1A6 /* SwiftImageCarouselVCTests.swift */,
+				962DF5491E4F7C0B00E20AD0 /* SwiftImageCarouselGalleryVCTests.swift */,
 				267A9B521E27DB8000FBA1A6 /* Info.plist */,
 			);
 			path = SwiftImageCarouselTests;
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				267A9B511E27DB8000FBA1A6 /* SwiftImageCarouselVCTests.swift in Sources */,
+				962DF54A1E4F7C0B00E20AD0 /* SwiftImageCarouselGalleryVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

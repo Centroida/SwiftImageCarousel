@@ -16,7 +16,7 @@ class GalleryVC: UIPageViewController {
 
     // MARK: - Functions
     /// A method that helps to instantiate the correct GalleryItemVC. It gets called rightaway when segue with identifier showGalleryVC finishes.
-    fileprivate func loadPageViewController(atIndex startingViewControllerIndex: Int) {
+    func loadPageViewController(atIndex startingViewControllerIndex: Int) {
         dataSource = self
 
         if !contentImageURLs.isEmpty {
