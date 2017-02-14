@@ -11,7 +11,6 @@ SwiftImageCarousel is a UIPageController-based framework that implements scrolli
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Issues](#issues)
 - [License](#license)
 
 
@@ -51,7 +50,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Project Name>' do
-pod 'SwiftImageCarousel', '1.0.2'
+pod 'SwiftImageCarousel', '1.0.3'
 end
 
 ```
@@ -119,6 +118,16 @@ import SwiftImageCarousel
        
        /// Default URLs are not provided. They need to be set up.
        vc.contentImageURLs = [ "<Your First URL>", "<Your Second URL>", "<Your Third URL>"]
+```
+
+### Setting up the `noImage` UIImage variable
+
+```swift
+       let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+       let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
+       
+       // There is no default image for this variable. It needs to be set up.
+       vc.noImage = <Some UIImage from the Assets in your project>
 ```
 
 ### Disabling the timer with the `isTimerOn` Bool variable
@@ -231,9 +240,6 @@ extension ViewController: SwiftImageCarouselVCDelegate {
 }
 ```
   
-## Issues
-  
-- Changing contentImageURLs should update the carousel.
   
 ## License
 
