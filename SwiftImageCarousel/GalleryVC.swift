@@ -7,16 +7,18 @@
 
 import UIKit
 
-/// GalleryVC is pretty much the same class as InitialOageViewController both in the storyboard which the reason that most variables and functions are not described into detail below. Unlike its cousin though, it instantiates a class - GalleryItemVC - that adds on the abilities to scroll and zoom on the image in view.
+/// GalleryVC is pretty much the same class as SwiftImageCarouselVC both in the storyboard and in code. That is the reason most variables and functions are not described into detail below. Unlike its cousin though, it instantiates a class - GalleryItemVC - that adds on the abilities to scroll and zoom on the image in view.
 class GalleryVC: UIPageViewController {
 
     // MARK: - Variables
     var pageIndicatorIndex = 0
     var contentImageURLs = [String]()
+    
+    var noImage: UIImage? = nil
 
     // MARK: - Functions
     /// A method that helps to instantiate the correct GalleryItemVC. It gets called rightaway when segue with identifier showGalleryVC finishes.
-    fileprivate func loadPageViewController(atIndex startingViewControllerIndex: Int) {
+    func loadPageViewController(atIndex startingViewControllerIndex: Int) {
         dataSource = self
 
         if !contentImageURLs.isEmpty {
@@ -29,15 +31,16 @@ class GalleryVC: UIPageViewController {
     /// A method that gets GalleryItemVC with a given index.
     ///
     /// - Parameter itemIndex: The index for the particular GalleryItemVC needed based on contentImageURLs array.
-    /// - Returns: GalleryItemVC
+    /// - Returns: galleryItemVC
     fileprivate func getItemController(_ itemIndex: Int) -> GalleryItemVC? {
 
         if itemIndex < contentImageURLs.count {
-            let GalleryItemVC = storyboard!.instantiateViewController(withIdentifier: "GalleryItemVC") as! GalleryItemVC
-            GalleryItemVC.itemIndex = itemIndex
-            GalleryItemVC.productImageURL = contentImageURLs[GalleryItemVC.itemIndex]
+            let galleryItemVC = storyboard!.instantiateViewController(withIdentifier: "GalleryItemVC") as! GalleryItemVC
+            galleryItemVC.itemIndex = itemIndex
+            galleryItemVC.productImageURL = contentImageURLs[galleryItemVC.itemIndex]
+            galleryItemVC.noImage = noImage
             
-            return GalleryItemVC
+            return galleryItemVC
         }
         return nil
     }

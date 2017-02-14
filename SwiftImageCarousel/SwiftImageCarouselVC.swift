@@ -35,26 +35,33 @@ import UIKit
     /// Fires when a pageItemController is tapped.
     ///
     /// - Parameter SwiftImageCarouselItemController: The SwiftImageCarouselItemVC taht is tapped
-    @objc optional func didTapSwiftImageCarouselItemVC(SwiftImageCarouselItemController: SwiftImageCarouselItemVC)
+    @objc optional func didTapSwiftImageCarouselItemVC(swiftImageCarouselItemController: SwiftImageCarouselItemVC)
 }
-
 
 ///  SwiftImageCarouselVC is the controller base class and initilizes the first view the user sees when a developer implements this carousel. It implements methods used for instantiating the proper page view, setting up the page controller appearance and setting up the timer used for automatic swiping of the page views.
 public class SwiftImageCarouselVC: UIPageViewController {
-    /// The model array of image urls used in the carousel
-    public var contentImageURLs: [String] = []
+    
+    /// The model array of image urls used in the carousel.
+    public var contentImageURLs: [String] = [] {
+        didSet {
+            getNextItemController()
+        }
+    }
 
     // MARK: - Delegate
     weak public var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
 
-    /// Enables/disables the showing of the modal gallery
+    /// Enables/disables the showing of the modal gallery.
     public var showModalGalleryOnTap = true
+    
+    /// The image shown when an image to be downloaded does not do that successfully
+    public var noImage: UIImage? = nil
 
-    /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit
+    /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit.
     public var contentMode: UIViewContentMode = .scaleAspectFit
 
     // MARK: - Timer properties
-    /// The timer that is used to move the next page item
+    /// The timer that is used to move the next page item.
     var timer = Timer()
 
     /// Enables/disables the automatic swiping of the timer. Default value is true.
@@ -73,32 +80,34 @@ public class SwiftImageCarouselVC: UIPageViewController {
     /// In this unwind method, it is made sure that the view that will be instantiated has the proper image (meaning that same that we unwinded from).
     /// It is also made sure that that pageIndicatorIndex is setup to the proper dot shows up on the page control.
     @IBAction func unwindToSwiftImageCarouselVC(withSegue segue: UIStoryboardSegue) {
-
         // Making sure that the proper page control appearance comes on here when unwinding.
         setupPageControl()
-
-        if let scrollablePageItemVC = segue.source as? GalleryItemVC {
-            if let currentController = getItemController(scrollablePageItemVC.itemIndex) {
-                swiftImageCarouselVCDelegate?.didunwindToSwiftImageCarouselVC?(unwindedTo: currentController)
-                pageIndicatorIndex = currentController.itemIndex
-                let startingViewControllers = [currentController]
-                setViewControllers(startingViewControllers, direction: .forward, animated: false, completion: nil)
-            }
+        if let galleryItemVC = segue.source as? GalleryItemVC {
+            loadPageViewControllerWhenUnwinding(atIndex: galleryItemVC.itemIndex)
+        }
+    }
+    
+    /// Loads a view controller with the index from the unwind segue.
+    ///
+    /// - Parameter itemIndex: The index for the VC from the model that will be loaded
+    func loadPageViewControllerWhenUnwinding(atIndex itemIndex: Int) {
+        if let currentController = getItemController(itemIndex) {
+            swiftImageCarouselVCDelegate?.didunwindToSwiftImageCarouselVC?(unwindedTo: currentController)
+            pageIndicatorIndex = currentController.itemIndex
+            let startingViewControllers = [currentController]
+            setViewControllers(startingViewControllers, direction: .forward, animated: false, completion: nil)
         }
     }
 
     // MARK: - Functions
-    /// Loads a starting view controller from the model array with an index. Called on viewDidLoad()
+    /// Loads a starting view controller from the model array with an index.
     ///
-    /// - Parameter index: The index identifying which view controller from the model will be loaded
+    /// - Parameter index: The index for the VC from the model that will be loaded
     func loadPageViewController(atIndex index: Int = 0) {
-        if contentImageURLs.count > 0 {
-            if let firstController = getItemController(index) {
-                let startingViewControllers = [firstController]
-                setViewControllers(startingViewControllers, direction: .forward, animated: true, completion: nil)
-            }
+        if let firstController = getItemController(index) {
+            let startingViewControllers = [firstController]
+            setViewControllers(startingViewControllers, direction: .forward, animated: true, completion: nil)
         }
-        self.view.backgroundColor = .white
     }
 
     /// A method for getting the next SwiftImageCarouselItemVC. Called only by the timer selector.
@@ -117,24 +126,16 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
     /// A method for getting SwiftImageCarouselItemVC with a given index.
     func getItemController(_ itemIndex: Int) -> SwiftImageCarouselItemVC? {
-        /// The same method but within func getItemController(_ itemIndex: Int) used to just avoid typing it twice in the if-else below.
-
-        func innerGetPageItemController (_ itemIndex: Int) -> SwiftImageCarouselItemVC {
+        if !contentImageURLs.isEmpty && itemIndex <= contentImageURLs.count {
             let pageItemController = storyboard!.instantiateViewController(withIdentifier: "SwiftImageCarouselItemVC") as! SwiftImageCarouselItemVC
-            pageItemController.itemIndex = itemIndex
+            pageItemController.itemIndex = itemIndex < contentImageURLs.count ? itemIndex : 0
             pageItemController.contentImageURLs = contentImageURLs
             pageItemController.swiftImageCarouselVCDelegate = swiftImageCarouselVCDelegate
             pageItemController.showModalGalleryOnTap = showModalGalleryOnTap
             pageItemController.contentMode = contentMode
+            pageItemController.noImage = noImage
             return pageItemController
         }
-
-        if itemIndex < contentImageURLs.count {
-            return innerGetPageItemController(itemIndex)
-        } else if itemIndex == contentImageURLs.count {
-            return innerGetPageItemController(0)
-        }
-
         return nil
     }
 
@@ -155,13 +156,14 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
     // MARK: - Setup page control
     func setupPageControl() {
-        // Default appearance to be used if no one sets up page controls apperance from outside this framework.
+        view.backgroundColor = .white
+        // Default appearance
         let appearance = UIPageControl.appearance()
         appearance.pageIndicatorTintColor = .orange
         appearance.currentPageIndicatorTintColor = .gray
         appearance.backgroundColor = .clear
 
-        /// Custom appearance setup with delegation from outside this framework.
+        // Custom appearance setup with delegation from outside this framework.
         let firstAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [SwiftImageCarouselVC.self])
         let secondAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [GalleryVC.self])
         swiftImageCarouselVCDelegate?.setupAppearance?(forFirst: firstAppearance, forSecond: secondAppearance)
@@ -175,31 +177,20 @@ public class SwiftImageCarouselVC: UIPageViewController {
         loadPageViewController()
         setupPageControl()
     }
+    
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if isTimerOn {
             startTimer()
         }
     }
+    
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         timer.invalidate()
     }
+    
     override public var prefersStatusBarHidden : Bool { return true }
-
-    // A method we use fixing the bounds of the image so that page control with the dots does not cover that particular image when a user zooms in.
-    // We use it in GalleryItemVC but we also will need to implement it here in order to avoid image position shift when segueing back and forth between Scrollable Page View Controller and GalleryItemVC.
-    // Works buggy when embeding. Works ok with newly instantiated storyboard.
-    //    override public func viewDidLayoutSubviews() {
-    //        super.viewDidLayoutSubviews()
-    //        for view in self.view.subviews {
-    //            if view is UIScrollView {
-    //                view.frame = UIScreen.main.bounds
-    //            } else if view is UIPageControl {
-    //                view.backgroundColor = UIColor.clear
-    //            }
-    //        }
-    //    }
 }
 
 // MARK: - UIPageViewControllerDataSource

@@ -22,6 +22,8 @@ class GalleryItemVC: UIViewController {
     // MARK: - Variables
     var itemIndex = 0
     var productImageURL: String?
+    
+    var noImage: UIImage? = nil
 
     @IBAction func tapBigImage(_ sender: UITapGestureRecognizer) {
         self.performSegue(withIdentifier: "unwindToSwiftImageCarouselVC", sender: self)
@@ -29,7 +31,7 @@ class GalleryItemVC: UIViewController {
 
     // MARK: - setupUI Function
     fileprivate func setupUI(){
-        contentImageView.image = UIImage.bundledImage(named: "no-image")
+        contentImageView.image = noImage
         _ = contentImageView.downloadImageAsync(contentsOf: productImageURL, saveToCache: imageCache)
         scrollView?.contentSize = contentImageView.frame.size
     }
