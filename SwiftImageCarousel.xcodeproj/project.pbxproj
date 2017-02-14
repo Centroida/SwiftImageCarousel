@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				267A9B441E27DB7F00FBA1A6 /* SwiftImageCarousel */,
-				267A9B4F1E27DB8000FBA1A6 /* SwiftImageCarouselTests */,
+				267A9B4F1E27DB8000FBA1A6 /* Tests */,
 				267A9B431E27DB7F00FBA1A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,13 +94,14 @@
 			path = SwiftImageCarousel;
 			sourceTree = "<group>";
 		};
-		267A9B4F1E27DB8000FBA1A6 /* SwiftImageCarouselTests */ = {
+		267A9B4F1E27DB8000FBA1A6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				267A9B501E27DB8000FBA1A6 /* SwiftImageCarouselVCTests.swift */,
 				962DF5491E4F7C0B00E20AD0 /* SwiftImageCarouselGalleryVCTests.swift */,
 				267A9B521E27DB8000FBA1A6 /* Info.plist */,
 			);
+			name = Tests;
 			path = SwiftImageCarouselTests;
 			sourceTree = "<group>";
 		};
