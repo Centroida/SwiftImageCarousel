@@ -133,11 +133,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
             pageItemController.swiftImageCarouselVCDelegate = swiftImageCarouselVCDelegate
             pageItemController.showModalGalleryOnTap = showModalGalleryOnTap
             pageItemController.contentMode = contentMode
-<<<<<<< HEAD
             pageItemController.noImage = noImage
-=======
-            
->>>>>>> 34973a5d38196ff631270f5743af903e5cd9c78f
             return pageItemController
         }
         return nil

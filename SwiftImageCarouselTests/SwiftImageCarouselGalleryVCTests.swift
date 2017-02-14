@@ -33,8 +33,8 @@ class SwiftImageCarouselGalleryVCTests: XCTestCase {
         let first = vc.viewControllers?.first as? GalleryItemVC
         
         XCTAssertEqual(first?.productImageURL, contentImageURLs[0])
-        
     }
+    
     func testPageVCAfter() {
         let pageViewController = GalleryVC()
         let viewController = GalleryItemVC()
