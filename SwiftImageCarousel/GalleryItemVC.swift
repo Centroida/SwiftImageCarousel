@@ -11,7 +11,7 @@ import UIKit
 class GalleryItemVC: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet var contentImageView: UIImageView!
+    @IBOutlet weak var contentImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView.contentSize = contentImageView.frame.size

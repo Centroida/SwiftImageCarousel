@@ -11,7 +11,7 @@ import UIKit
 public class SwiftImageCarouselItemVC: UIViewController {
 
     // MARK: -  Outlets
-    @IBOutlet var contentImageView: UIImageView!
+    @IBOutlet weak var contentImageView: UIImageView!
     
     // MARK: - Variables
     /// The image shown when an image to be downloaded does not do that successfully
