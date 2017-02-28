@@ -141,6 +141,9 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
     // MARK: - Timer Function
     func startTimer() {
+        if timer.isValid {
+        timer.invalidate()
+        }
         timer = Timer.scheduledTimer(timeInterval: swipeTimeIntervalSeconds, target: self, selector: #selector(getNextItemController), userInfo: nil, repeats: true)
         swiftImageCarouselVCDelegate?.didStartTimer?(timer)
     }
