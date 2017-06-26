@@ -42,25 +42,14 @@ $ gem install cocoapods
 
 To integrate SwiftImageCarousel into your Xcode project using CocoaPods, specify it in your ```Podfile```:
 
-```
-source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/Centroida/SwiftImageCarousel.git'
-
-platform :ios, '10.0'
-use_frameworks!
+```swift
 
 target '<Your Target Project Name>' do
-pod 'SwiftImageCarousel', '1.0.3'
+use_frameworks!
+
+pod 'SwiftImageCarousel'
 end
 
-```
-<b>Or</b>
-
-```
-source 'https://github.com/Centroida/SwiftImageCarousel.git'
-
-platform :ios, '10.0'
-use_frameworks!
 ```
 
 ### Alternatively:
@@ -158,6 +147,16 @@ import SwiftImageCarousel
        
        /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit
        vc.contentMode = .scaleToFill
+```
+
+### Making sure that the UIPageControl background is transparent (page control dots remain visible) and the UIPageControl frame does not interfere with the images frame when in the carousel mode where images automatically switch (`SwiftImageCarouselVC`) using `escapeFirstPageControlDefaultFrame` Bool varaible:
+
+```swift
+       let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+       let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
+       
+       /// The default value of the variable is false
+       vc.escapeFirstPageControlDefaultFrame = true
 ```
 
 ###  Disabling the modal gallery segue transition from SwiftImageCarouselItemVC to GalleryVC with the `showModalGalleryOnTap` Bool variable 
