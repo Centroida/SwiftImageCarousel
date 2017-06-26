@@ -54,6 +54,9 @@ public class SwiftImageCarouselVC: UIPageViewController {
     /// When set to TRUE, sets the image container frame to extend over the UIPageControl frame but not cover it (it goes underneath). To see it the proper effect of this variable in most cases, the contentMode should be .scaleToFill. Note also that background of the page control defaults to .clear when this variable is set to TRUE Default value is FALSE.
     public var escapeFirstPageControlDefaultFrame = false
 
+    /// Keeps track of the page control frame height and provides it when needed
+    var pageControlFrameHeight: CGFloat = 0
+
     /// Enables/disables the showing of the modal gallery.
     public var showModalGalleryOnTap = true
 
@@ -192,9 +195,12 @@ public class SwiftImageCarouselVC: UIPageViewController {
                 if view is UIScrollView {
                     // Sets the image container frame to extend over the UIPageControl frame but not cover it (it goes underneath).
                     // To see it properly working contentMode should be .scaleToFill
-                    // 37 is the default height of a UIPageControl
-                    view.frame = CGRect(x: view.frame.minX , y: view.frame.minY, width: view.frame.width, height: view.frame.height + 37)
+                    // 37 is generally the default height of a UIPageControl
+                    if pageControlFrameHeight != 0 {
+                        view.frame = CGRect(x: view.frame.minX , y: view.frame.minY, width: view.frame.width, height: view.frame.height + pageControlFrameHeight)
+                    }
                 } else if view is UIPageControl {
+                    pageControlFrameHeight = view.frame.height
                     view.backgroundColor = .clear
                 }
             }
