@@ -24,6 +24,9 @@ class ExampleViewController: UIViewController {
         let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
         let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
         vc.contentImageURLs = imageURLs
+
+        // Add delegate
+        vc.swiftImageCarouselVCDelegate = self
         
         // Adding it to the container view
         vc.willMove(toParentViewController: self)
