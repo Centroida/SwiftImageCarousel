@@ -51,9 +51,12 @@ public class SwiftImageCarouselVC: UIPageViewController {
     // MARK: - Delegate
     weak public var swiftImageCarouselVCDelegate: SwiftImageCarouselVCDelegate?
 
+    /// When set to TRUE, sets the image container frame to extend over the UIPageControl frame but not cover it (it goes underneath). To see it the proper effect of this variable in most cases, the contentMode should be .scaleToFill. Note also that background of the page control defaults to .clear when this variable is set to TRUE Default value is FALSE.
+    public var escapeFirstPageControlDefaultFrame = false
+
     /// Enables/disables the showing of the modal gallery.
     public var showModalGalleryOnTap = true
-    
+
     /// The image shown when an image to be downloaded does not do that successfully
     public var noImage: UIImage? = nil
 
@@ -142,7 +145,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
     // MARK: - Timer Function
     func startTimer() {
         if timer.isValid {
-        timer.invalidate()
+            timer.invalidate()
         }
         timer = Timer.scheduledTimer(timeInterval: swipeTimeIntervalSeconds, target: self, selector: #selector(getNextItemController), userInfo: nil, repeats: true)
         swiftImageCarouselVCDelegate?.didStartTimer?(timer)
@@ -180,7 +183,24 @@ public class SwiftImageCarouselVC: UIPageViewController {
         loadPageViewController()
         setupPageControl()
     }
-    
+
+    /// A method fixing the bounds of the image so that page control with the dots does not cover that particular image.
+    override public func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if escapeFirstPageControlDefaultFrame {
+            for view in self.view.subviews {
+                if view is UIScrollView {
+                    // Sets the image container frame to extend over the UIPageControl frame but not cover it (it goes underneath).
+                    // To see it properly working contentMode should be .scaleToFill
+                    // 37 is the default height of a UIPageControl
+                    view.frame = CGRect(x: view.frame.minX , y: view.frame.minY, width: view.frame.width, height: view.frame.height + 37)
+                } else if view is UIPageControl {
+                    view.backgroundColor = .clear
+                }
+            }
+        }
+    }
+
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if isTimerOn {
