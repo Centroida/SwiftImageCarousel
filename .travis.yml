@@ -1,3 +1,4 @@
 language: objective-c
-script: xcodebuild -workspace SwiftImageCarousel.xcworkspace -scheme SwiftImageCarousel -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-xcodebuild test -workspace SwiftImageCarousel.xcworkspace -scheme SwiftImageCarousel -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO 
+script:
+  - xctool -workspace SwiftImageCarousel.xcworkspace -scheme SwiftImageCarousel -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool test -workspace SwiftImageCarousel.xcworkspace -scheme SwiftImageCarouselTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
