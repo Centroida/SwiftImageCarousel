@@ -1,5 +1,13 @@
 language: objective-c
+sudo: false
 osx_image: xcode8.3
+
+matrix:
+  include:
+    - os: osx
+      env: ACTION=test_ios10
+    - os: osx
+      env: ACTION=test_ios9
+
 script:
-  - xctool -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarousel -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-  - xctool test -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarouselTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - bundle exec fastlane $ACTION
