@@ -1,0 +1,15 @@
+language: objective-c
+sudo: false
+osx_image: xcode8.3
+
+matrix:
+  include:
+    - os: osx
+      env: ACTION=test_ios10
+    - os: osx
+      env: ACTION=test_ios9
+    - os: osx
+      env: ACTION=pod_lint
+
+script:
+  - bundle exec fastlane $ACTION
