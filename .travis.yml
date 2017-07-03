@@ -10,7 +10,9 @@ before_install:
   - gem install xcpretty -N
   - brew update
   - brew install swiftlint || true
-script:
-  - set -o pipefail
+script:  
   - xcodebuild -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarousel -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
-  - swiftlint
+   - xcodebuild clean -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarousel | xcpretty
+   - xcodebuild test -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarousel | xcpretty -s
+
+
