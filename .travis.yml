@@ -8,8 +8,6 @@ env:
   - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
 before_install:  
   - gem install xcpretty -N
-  - brew update
-  - brew install swiftlint || true
 script:  
   - xcodebuild -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarousel -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
    - xcodebuild clean -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarousel | xcpretty
