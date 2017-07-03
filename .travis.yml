@@ -9,4 +9,5 @@ xcode_scheme: SwiftImageCarouselTests
 xcode_sdk: iphonesimulator10.3
 
 script:
-- xcodebuild clean build test -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarouselTests
+- xcodebuild -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarouselTests
+
