@@ -1,3 +1,3 @@
 language: objective-c
-script:
-    - xcodebuild -project SwiftImageCarousel.xcodeproj -target SwiftImageCarousel -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+osx_image: xcode8.3
+script: xcodebuild clean && xcodebuild build -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarousel
