@@ -12,13 +12,14 @@ import XCTest
 class SwiftImageCarouselVCTests: XCTestCase {
     
     var vc: SwiftImageCarouselVC!
-    var testImagesURLsCount = 50
-    var contentImageURLs = [String]()
-    
+    var testImagesURLsCount: Int!
+    var contentImageURLs: [String]!
+
     // MARK: - SetUp & TearDown
     override func setUp() {
         super.setUp()
-        
+
+        testImagesURLsCount = 50
         contentImageURLs = [String](repeating: "<URL STRING>", count: testImagesURLsCount)
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
@@ -28,8 +29,51 @@ class SwiftImageCarouselVCTests: XCTestCase {
         vc.loadPageViewController()
         let _ = vc.view
     }
+
+    override func tearDown() {
+        vc = nil
+        testImagesURLsCount = nil
+        contentImageURLs = nil
+        super.tearDown()
+    }
     
     // MARK: - Tests
+    func testStatusBarHiddenIsTrue() {
+        // Assert
+        XCTAssertTrue(vc.prefersStatusBarHidden)
+    }
+    
+    func testStartTimerFunction() {
+        // Act
+        vc.timer.invalidate()
+        // Assert
+        XCTAssertFalse(vc.timer.isValid)
+        // Act
+        vc.startTimer()
+        // Act
+        XCTAssertTrue(vc.timer.isValid)
+    }
+
+    func testTimerStartsOnViewWillAppear() {
+        // Arrange
+        vc.timer.invalidate()
+        // Act
+        vc.viewWillAppear(true)
+        // Assert
+        XCTAssertTrue(vc.timer.isValid)
+    }
+
+    func testTimerIsDisabledAfterViewWillDisapper() {
+        // Arrange
+        vc.startTimer()
+        // Assert
+        XCTAssertTrue(vc.timer.isValid)
+        // Act
+        vc.viewWillDisappear(true)
+        // Assert
+        XCTAssertFalse(vc.timer.isValid)
+    }
+
     func testSettingViewControllersURL() {
         for i in 0..<contentImageURLs.count {
             // When
@@ -53,6 +97,15 @@ class SwiftImageCarouselVCTests: XCTestCase {
         // Then
         XCTAssertEqual(itemVC.itemIndex, itemControllerIndex)
         XCTAssertEqual(resetVC.itemIndex, 0)
+    }
+
+    func testGetItemControllerWhenShouldReturnNil() {
+        // Assert
+        XCTAssertFalse(vc.contentImageURLs.isEmpty)
+        // Act
+        vc.contentImageURLs.removeAll()
+        // Assert
+        XCTAssertNil(vc.getItemController(2))
     }
     
     func testGetItemControllerNoURLs() {
