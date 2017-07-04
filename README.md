@@ -1,3 +1,4 @@
+[![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg?style=plastic)](https://github.com/Centroida/SwiftImageCarousel)
 [![CocoaPods](https://img.shields.io/cocoapods/v/SwiftImageCarousel.svg)](https://img.shields.io/cocoapods/v/SwiftImageCarousel.svg)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftImageCarousel.svg?style=flat)](http://cocoadocs.org/docsets/SwiftImageCarousel)
 [![CocoaPods](https://img.shields.io/cocoapods/l/SwiftImageCarousel.svg)](https://img.shields.io/cocoapods/l/SwiftImageCarousel.svg)
