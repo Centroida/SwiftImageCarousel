@@ -12,7 +12,7 @@ import XCTest
 class SwiftImageCarouselGalleryVCTests: XCTestCase {
     
     var vc: GalleryVC!
-    var contentImageURLs = [String]()
+    var contentImageURLs: [String]!
     
     override func setUp() {
         super.setUp()
@@ -26,9 +26,14 @@ class SwiftImageCarouselGalleryVCTests: XCTestCase {
         vc.viewDidLayoutSubviews()
         let _ = vc.prefersStatusBarHidden
     }
+
+    override func tearDown() {
+        vc = nil
+        contentImageURLs = nil
+        super.tearDown()
+    }
     
-    func testLoadPageVC() {
-        
+    func testLoadPageVC() {        
         vc.loadPageViewController(atIndex: 0)
         let first = vc.viewControllers?.first as? GalleryItemVC
         
