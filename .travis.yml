@@ -1,4 +1,3 @@
 language: objective-c
-osx_image: xcode8
 script:
-    - xcodebuild clean test -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarousel -destination "platform=iOS Simulator,name=iPhone 7,OS=10.3" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -quiet
+    - xcodebuild -project SwiftImageCarousel.xcodeproj -target SwiftImageCarousel -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
