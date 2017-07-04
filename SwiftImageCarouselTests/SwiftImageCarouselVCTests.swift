@@ -36,6 +36,30 @@ class SwiftImageCarouselVCTests: XCTestCase {
         contentImageURLs = nil
         super.tearDown()
     }
+
+    func testUnwindToSwiftImageCarouselIBAction() {
+        // Arrange
+        class MockSwiftImageCarouselVC: SwiftImageCarouselVC {
+            var setupPageControlCalled = false
+            var loadPageViewControllerWhenUnwindingFunctionCalled = false
+            override func setupPageControl() {
+                super.setupPageControl()
+                setupPageControlCalled = true
+            }
+
+            override func loadPageViewControllerWhenUnwinding(atIndex itemIndex: Int) {
+                super.loadPageViewControllerWhenUnwinding(atIndex: itemIndex)
+                loadPageViewControllerWhenUnwindingFunctionCalled = true
+            }
+        }
+        let mockVC = MockSwiftImageCarouselVC()
+        let segue = UIStoryboardSegue(identifier: "unwind", source: GalleryItemVC(), destination: UIViewController())
+        // Act
+        mockVC.unwindToSwiftImageCarouselVC(withSegue: segue)
+        // Assert
+        XCTAssertTrue(mockVC.setupPageControlCalled)
+        XCTAssertTrue(mockVC.loadPageViewControllerWhenUnwindingFunctionCalled)
+    }
     
     // MARK: - Tests
     func testStatusBarHiddenIsTrue() {
