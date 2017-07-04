@@ -3,4 +3,5 @@ osx_image: xcode8
 script: 
 - xcodebuild clean build -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarousel CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -quiet
 - xcodebuild test -project SwiftImageCarousel.xcodeproj -scheme SwiftImageCarouselTests -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -quiet
-- bash <(curl -s https://codecov.io/bash)
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
