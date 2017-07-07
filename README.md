@@ -1,9 +1,9 @@
 [![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg?style=plastic)](https://github.com/Centroida/SwiftImageCarousel)
-[![codecov.io](https://codecov.io/gh/Centroida/SwiftImageCarousel/coverage.svg?branch=master)](https://codecov.io/gh/Centroida/SwiftImageCarousel?branch=master)
-[![CocoaPods](https://img.shields.io/cocoapods/v/SwiftImageCarousel.svg)](https://img.shields.io/cocoapods/v/SwiftImageCarousel.svg)
+[![codecov.io](https://codecov.io/gh/Centroida/SwiftImageCarousel/coverage.svg?branch=master?style=plastic)](https://codecov.io/gh/Centroida/SwiftImageCarousel?branch=master)
+[![CocoaPods](https://img.shields.io/cocoapods/v/SwiftImageCarousel.svg?style=plastic)](https://img.shields.io/cocoapods/v/SwiftImageCarousel.svg)
 [![CocoaPods](https://img.shields.io/cocoapods/dt/SwiftImageCarousel.svg?style=plastic)](https://github.com/Centroida/SwiftImageCarousel)
-[![Platform](https://img.shields.io/cocoapods/p/SwiftImageCarousel.svg?style=flat)](http://cocoadocs.org/docsets/SwiftImageCarousel)
-[![CocoaPods](https://img.shields.io/cocoapods/l/SwiftImageCarousel.svg)](https://img.shields.io/cocoapods/l/SwiftImageCarousel.svg)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftImageCarousel.svg?style=plastic)](http://cocoadocs.org/docsets/SwiftImageCarousel)
+[![CocoaPods](https://img.shields.io/cocoapods/l/SwiftImageCarousel.svg?style=plastic)](https://img.shields.io/cocoapods/l/SwiftImageCarousel.svg)
 
 # SwiftImageCarousel
  
