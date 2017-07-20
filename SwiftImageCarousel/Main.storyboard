@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="AkL-qy-2tW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="AkL-qy-2tW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -92,14 +94,33 @@
                                     <constraint firstItem="eY4-TJ-0hM" firstAttribute="leading" secondItem="xb8-AI-TVz" secondAttribute="leading" id="kON-5o-ETa"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFE-rT-WvK">
+                                <rect key="frame" x="16" y="15" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SFE-rT-WvK" secondAttribute="height" multiplier="1:1" id="4zy-2e-4La"/>
+                                    <constraint firstAttribute="height" constant="30" id="6dQ-o5-dls"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="✕">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapCloseButton:" destination="y6f-61-PVO" eventType="touchUpInside" id="Esv-De-Hah"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="xb8-AI-TVz" firstAttribute="top" secondItem="4pb-9m-ukf" secondAttribute="bottom" id="3Gz-tK-IOe"/>
                             <constraint firstItem="xb8-AI-TVz" firstAttribute="leading" secondItem="Ayu-fa-5zg" secondAttribute="leading" id="Eeb-HB-Dqo"/>
+                            <constraint firstItem="SFE-rT-WvK" firstAttribute="width" secondItem="SFE-rT-WvK" secondAttribute="height" multiplier="1:1" id="Gfi-8q-7mX"/>
                             <constraint firstItem="xb8-AI-TVz" firstAttribute="bottom" secondItem="uh7-qW-4MK" secondAttribute="top" id="YOq-DQ-tBq"/>
+                            <constraint firstItem="SFE-rT-WvK" firstAttribute="top" secondItem="4pb-9m-ukf" secondAttribute="bottom" constant="15" id="hlK-NX-2mh"/>
                             <constraint firstAttribute="trailing" secondItem="xb8-AI-TVz" secondAttribute="trailing" id="sn8-dm-kWn"/>
+                            <constraint firstItem="SFE-rT-WvK" firstAttribute="leading" secondItem="Ayu-fa-5zg" secondAttribute="leadingMargin" id="tKw-i8-rIe"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="AR7-m7-l7B" appends="YES" id="FY5-im-Y3h"/>
@@ -108,6 +129,7 @@
                     <navigationItem key="navigationItem" id="bIq-U5-YEn"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="closeButton" destination="SFE-rT-WvK" id="01S-Cu-C42"/>
                         <outlet property="contentImageView" destination="eY4-TJ-0hM" id="9yY-MF-LFh"/>
                         <outlet property="scrollView" destination="xb8-AI-TVz" id="mIO-zD-5k4"/>
                         <segue destination="WKU-un-ULr" kind="unwind" identifier="unwindToSwiftImageCarouselVC" unwindAction="unwindToSwiftImageCarouselVCWithSegue:" id="oOp-20-9Im"/>

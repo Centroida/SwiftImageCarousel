@@ -26,6 +26,9 @@ public class SwiftImageCarouselItemVC: UIViewController {
     /// Enables/disables the showing of the modal gallery
     var showModalGalleryOnTap = true
 
+    /// Shows/hides the close button in the modal gallery. Default value is false.
+    var showCloseButtonInModalGallery = false
+
     /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit
     var contentMode: UIViewContentMode = .scaleAspectFit
 
@@ -54,6 +57,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
                 scrollableGalleryVC.pageIndicatorIndex = itemIndex
                 scrollableGalleryVC.contentImageURLs = contentImageURLs
                 scrollableGalleryVC.noImage = noImage
+                scrollableGalleryVC.showCloseButtonInModalGallery = showCloseButtonInModalGallery
             }
         }
     }

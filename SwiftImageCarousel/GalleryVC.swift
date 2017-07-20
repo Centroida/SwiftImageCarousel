@@ -15,6 +15,8 @@ class GalleryVC: UIPageViewController {
     var contentImageURLs = [String]()
     
     var noImage: UIImage? = nil
+    /// Shows/hides the close button in the modal gallery. Default value is false.
+    var showCloseButtonInModalGallery = false
 
     // MARK: - Functions
     /// A method that helps to instantiate the correct GalleryItemVC. It gets called rightaway when segue with identifier showGalleryVC finishes.
@@ -39,6 +41,7 @@ class GalleryVC: UIPageViewController {
             galleryItemVC.itemIndex = itemIndex
             galleryItemVC.productImageURL = contentImageURLs[galleryItemVC.itemIndex]
             galleryItemVC.noImage = noImage
+            galleryItemVC.showCloseButtonInModalGallery = showCloseButtonInModalGallery
             
             return galleryItemVC
         }

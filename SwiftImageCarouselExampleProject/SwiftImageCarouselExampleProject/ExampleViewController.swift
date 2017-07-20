@@ -25,6 +25,8 @@ class ExampleViewController: UIViewController {
         let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
         vc.contentImageURLs = imageURLs
 
+        vc.showCloseButtonInModalGallery = true
+
         // Add delegate
         vc.swiftImageCarouselVCDelegate = self
         
@@ -34,7 +36,7 @@ class ExampleViewController: UIViewController {
         vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
         self.addChildViewController(vc)
         vc.didMove(toParentViewController: self)
-    }
+              }
     
 }
 
