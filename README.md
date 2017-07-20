@@ -162,6 +162,16 @@ import SwiftImageCarousel
        vc.escapeFirstPageControlDefaultFrame = true
 ```
 
+###  Enabling showing a close button in the modal gallery (GalleryItemVC) with the `showCloseButtonInModalGallery` Bool variable
+
+```swift
+       let storyboard = UIStoryboard (name: "Main", bundle: Bundle(for: SwiftImageCarouselVC.self))
+       let vc = storyboard.instantiateInitialViewController() as! SwiftImageCarouselVC
+       
+       /// Enables/disables the showing of the close button in the modal gallery
+       vc.showCloseButtonInModalGallery = true
+```
+
 ###  Disabling the modal gallery segue transition from SwiftImageCarouselItemVC to GalleryVC with the `showModalGalleryOnTap` Bool variable 
 
 This variable would usually be used in combination with the `didTapSwiftImageCarouselItemVC(SwiftImageCarouselItemController: SwiftImageCarouselItemVC)` SwiftImageCarouselVCDelegate function.
