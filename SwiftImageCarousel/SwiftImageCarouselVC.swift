@@ -76,6 +76,9 @@ public class SwiftImageCarouselVC: UIPageViewController {
     /// The interval on which the view changes when the timer is on. Default value is 3 seconds.
     public var swipeTimeIntervalSeconds = 3.0
 
+    /// Shows/hides the close button in the modal gallery. Default value is false.
+    public var showCloseButtonInModalGallery = false
+
     /// This variable keeps track of the index used in the page control in terms of the array of URLs.
     fileprivate var pageIndicatorIndex = 0
 
@@ -140,6 +143,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
             pageItemController.showModalGalleryOnTap = showModalGalleryOnTap
             pageItemController.contentMode = contentMode
             pageItemController.noImage = noImage
+            pageItemController.showCloseButtonInModalGallery = showCloseButtonInModalGallery
             return pageItemController
         }
         return nil
