@@ -17,6 +17,7 @@
 		267A9B4C1E27DB8000FBA1A6 /* SwiftImageCarousel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267A9B421E27DB7F00FBA1A6 /* SwiftImageCarousel.framework */; };
 		267A9B511E27DB8000FBA1A6 /* SwiftImageCarouselVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267A9B501E27DB8000FBA1A6 /* SwiftImageCarouselVCTests.swift */; };
 		267A9B531E27DB8000FBA1A6 /* SwiftImageCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 267A9B451E27DB7F00FBA1A6 /* SwiftImageCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94FC91441F1F5E840044F128 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 94FC91431F1F5E840044F128 /* close.png */; };
 		962DF54A1E4F7C0B00E20AD0 /* SwiftImageCarouselGalleryVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962DF5491E4F7C0B00E20AD0 /* SwiftImageCarouselGalleryVCTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		267A9B4B1E27DB8000FBA1A6 /* SwiftImageCarouselTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftImageCarouselTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		267A9B501E27DB8000FBA1A6 /* SwiftImageCarouselVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftImageCarouselVCTests.swift; sourceTree = "<group>"; };
 		267A9B521E27DB8000FBA1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94FC91431F1F5E840044F128 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = ../../../../Downloads/close.png; sourceTree = "<group>"; };
 		962DF5491E4F7C0B00E20AD0 /* SwiftImageCarouselGalleryVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftImageCarouselGalleryVCTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 		267A9B5D1E27DC2B00FBA1A6 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				94FC91431F1F5E840044F128 /* close.png */,
 				2676D2EE1E28C9A30072B23F /* Extensions.swift */,
 				2676D2F01E28C9A30072B23F /* Main.storyboard */,
 				267A9B451E27DB7F00FBA1A6 /* SwiftImageCarousel.h */,
@@ -188,7 +191,7 @@
 				TargetAttributes = {
 					267A9B411E27DB7F00FBA1A6 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = E5C2GPDY2X;
+						DevelopmentTeam = NS5XW2Q4P8;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -222,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94FC91441F1F5E840044F128 /* close.png in Resources */,
 				2676D2F41E28C9A30072B23F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +379,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = E5C2GPDY2X;
+				DEVELOPMENT_TEAM = NS5XW2Q4P8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -397,7 +401,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = E5C2GPDY2X;
+				DEVELOPMENT_TEAM = NS5XW2Q4P8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
